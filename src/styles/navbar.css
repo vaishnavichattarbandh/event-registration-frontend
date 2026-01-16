@@ -1,0 +1,157 @@
+/* ===============================
+   NAVBAR
+================================ */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  font-family: "Agency FB", Arial, sans-serif;
+}
+
+/* ===============================
+   BACK BUTTON
+================================ */
+.back-btn {
+  font-size: 20px;
+  padding: 6px 10px;
+  margin-right: 12px;
+  cursor: pointer;
+  border: none;
+  background: #f3f4f6;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.back-btn:hover {
+  background: #e5e7eb;
+}
+
+/* ===============================
+   SEARCH INPUT
+================================ */
+.search {
+  flex: 1;
+  max-width: 350px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 14px;
+}
+
+.search:focus {
+  border-color: #2563eb;
+}
+
+/* ===============================
+   RIGHT SIDE
+================================ */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ===============================
+   ADMIN AREA
+================================ */
+.admin {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.admin img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.logout-btn {
+  margin-left: 10px;
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #ef4444;
+  color: #ffffff;
+  transition: background 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
+
+/* ===============================
+   MODAL OVERLAY
+================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* ===============================
+   MODAL
+================================ */
+.modal {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 320px;
+  text-align: center;
+}
+
+.modal h3 {
+  margin-bottom: 10px;
+}
+
+.modal p {
+  font-size: 14px;
+  color: #4b5563;
+}
+
+/* ===============================
+   MODAL ACTIONS
+================================ */
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+}
+
+.btn.cancel {
+  background: #e5e7eb;
+}
+
+.btn.confirm {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.btn.confirm:hover {
+  background: #dc2626;
+}
+
+
+
+

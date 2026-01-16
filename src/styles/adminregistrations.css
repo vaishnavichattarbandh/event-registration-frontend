@@ -1,0 +1,76 @@
+.admin-container {
+  display: flex;
+  background: #121212;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 20px;
+}
+
+h2 {
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+}
+
+th, td {
+  padding: 12px;
+  border-bottom: 1px solid #ffffff;
+  text-align: left;
+}
+
+th {
+  background: #ffffff;
+}
+
+tr:hover {
+  background: #fff8f8;
+}
+.confirm-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  z-index: 999;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.confirm-delete {
+  background: red;
+  color: rgb(1, 0, 0);
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.cancel-delete {
+  background: gray;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+}

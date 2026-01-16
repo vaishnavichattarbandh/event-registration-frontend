@@ -1,0 +1,58 @@
+.admin-layout {
+  height: 100vh;
+}
+
+.admin-body {
+  display: flex;
+  height: 100%;
+}
+
+/* Right side (navbar + content) */
+.admin-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.admin-content {
+  flex: 1;
+  overflow-y: auto;
+  background: #f1f5f9;
+  padding: 24px;
+}
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+/* Right side wrapper */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* THIS centers dashboard content properly */
+.page-content {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  justify-content: center;   /* horizontal centering */
+}
+
+/* Dashboard width control */
+.dashboard {
+  width: 100%;
+  max-width: 1200px;   /* keeps it in the middle-right */
+}
+
+

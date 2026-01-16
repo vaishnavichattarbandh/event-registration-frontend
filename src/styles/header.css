@@ -1,0 +1,30 @@
+.header {
+  background-color: #0b0f19;
+  padding: 16px 32px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.college-logo {
+  height: 60px;
+  width: 60px;
+  margin-right: 15px;
+  background-color: white; /* TEMP: helps confirm visibility */
+  padding: 4px;
+  border-radius: 6px;
+}
+
+.college-name {
+  color: white;
+  font-size: 20px;
+  margin: 0;
+}
+
+.college-subtitle {
+  color: #94a3b8;
+  font-size: 13px;
+  margin: 0;
+}

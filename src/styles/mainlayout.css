@@ -1,0 +1,35 @@
+/* Overall layout */
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f1f5f9;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+/* Right side (Navbar + Content) */
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content area */
+.main-content {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  justify-content: center;   /* centers dashboard horizontally */
+}
+
+/* Dashboard width control */
+.dashboard {
+  width: 100%;
+  max-width: 1200px;   /* keeps it centered on right side */
+}

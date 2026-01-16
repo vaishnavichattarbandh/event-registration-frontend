@@ -1,0 +1,66 @@
+/* admin.css */
+
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.admin-container {
+  padding: 20px;
+}
+
+.admin-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1e1e1e;
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #000;
+}
+.search-box {
+  width: 300px;
+  padding: 8px;
+  margin: 15px 0;
+  background: #1e1e1e;
+  border: 1px solid #333;
+  color: #fff;
+}
+.admin-page {
+  background-color: #111;
+  min-height: 100vh;
+  padding: 20px;
+  color: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #444;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #222;
+}
+
+tr:nth-child(even) {
+  background-color: #1a1a1a;
+}
