@@ -1,73 +1,53 @@
-/* Sidebar */
 .sidebar {
-  width: 240px;
-  background-color: #ffffff;
-  min-height: 100vh;  
-  height: 100%;               /* ✅ FIX */
-  flex-shrink: 0;             /* ✅ prevent collapse */
-  padding: 24px;
-  box-sizing: border-box;
-  border-right: 1px solid #e5e7eb;
-  font-family: "Agency FB", Arial, sans-serif;
+  width: 220px;
+  min-height: 100vh;
+  background: #111827;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.logo {
   font-size: 20px;
+  margin-bottom: 20px;
 }
 
-/* Sidebar text */
-.sidebar a,
-.sidebar p,
-.sidebar span,
-.sidebar li {
-  color: #000000;
-  text-decoration: none;
-  display: block;
-  margin-bottom: 16px;
-  font-weight: 500;
-  font-family: "Agency FB", Arial, sans-serif;
-  font-size: 18;
-}
-
-/* Hover effect */
-.sidebar a:hover {
-  color: #000000;
-  background-color: #f3f4f6;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-
-/* Active menu item */
-.sidebar a.active {
-  color: #000000;
-  background-color: #e5e7eb;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 8px 12px;
-  font-family: "Agency FB", Arial, sans-serif;
-  font-size: 18;
-}
-
-/* Force sidebar text visibility */
-.sidebar,
-.sidebar * {
-  color: #000000 !important;
-}
 .nav-link {
   display: block;
-  padding: 10px 14px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  color: #000;
+  padding: 10px;
+  margin: 8px 0;
+  color: #e5e7eb;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 16px;
+  border-radius: 6px;
 }
 
-/* hover */
-.nav-link:hover {
-  background-color: #f3f4f6;
-}
-
-/* ACTIVE route */
 .nav-link.active {
-  background-color: #e5e7eb;
-  font-weight: 600;
+  background: #4f46e5;
+  color: white;
+}
+
+/* 🔹 MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .nav-link {
+    margin: 0;
+    padding: 10px 12px;
+    font-size: 14px;
+  }
 }

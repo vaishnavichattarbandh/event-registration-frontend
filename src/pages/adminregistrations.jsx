@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/adminregistrations.css";
 
+const BASE_URL = "https://event-registration-backend-7d42.onrender.com";
+
 const AdminRegistrations = () => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
@@ -13,12 +15,9 @@ const AdminRegistrations = () => {
 
   const fetchRegistrations = async () => {
     try {
-      const res = await axios.get(
-        "http://localhost:5000/api/registrations",
-        {
-          params: { page, limit, search }
-        }
-      );
+      const res = await axios.get(`${BASE_URL}/api/registrations`, {
+        params: { page, limit, search }
+      });
 
       setData(res.data.data || []);
       setTotalPages(res.data.totalPages || 1);
@@ -35,9 +34,7 @@ const AdminRegistrations = () => {
 
   const confirmDelete = async () => {
     try {
-      await axios.delete(
-        `http://localhost:5000/api/registrations/${deleteId}`
-      );
+      await axios.delete(`${BASE_URL}/api/registrations/${deleteId}`);
       setDeleteId(null);
       fetchRegistrations();
     } catch (err) {
@@ -45,11 +42,18 @@ const AdminRegistrations = () => {
     }
   };
 
+  // ✅ CORRECT EXPORT
+  const handleExport = () => {
+    window.open(
+      `${BASE_URL}/api/registrations/export/excel`,
+      "_blank"
+    );
+  };
+
   return (
     <div className="admin-registrations">
       <h2>📋 Student Registrations</h2>
 
-      {/* SEARCH + EXPORT */}
       <div className="top-bar">
         <input
           placeholder="Search..."
@@ -58,19 +62,13 @@ const AdminRegistrations = () => {
             setSearch(e.target.value);
             setPage(1);
           }}
-        /><br/><br/>
+        />
 
-        <button
-          className="export-btn"
-          onClick={() =>
-            window.open("http://localhost:5000/api/registrations/export")
-          }
-        >
+        <button className="export-btn" onClick={handleExport}>
           📤 Export
         </button>
       </div>
-    
-      {/* TABLE */}
+
       <table>
         <thead>
           <tr>
@@ -79,16 +77,14 @@ const AdminRegistrations = () => {
             <th>Roll</th>
             <th>Dept</th>
             <th>Email</th>
-            <th style={{ width: "120px" }}>Action</th>
+            <th>Action</th>
           </tr>
         </thead>
 
         <tbody>
           {data.length === 0 ? (
             <tr>
-              <td colSpan="6" align="center">
-                No data
-              </td>
+              <td colSpan="6" align="center">No data</td>
             </tr>
           ) : (
             data.map(r => (
@@ -99,10 +95,7 @@ const AdminRegistrations = () => {
                 <td>{r.department}</td>
                 <td>{r.email}</td>
                 <td>
-                  <button
-                    className="delete-btn"
-                    onClick={() => setDeleteId(r._id)}
-                  >
+                  <button onClick={() => setDeleteId(r._id)}>
                     🗑 Delete
                   </button>
                 </td>
@@ -110,9 +103,8 @@ const AdminRegistrations = () => {
             ))
           )}
         </tbody>
-      </table> 
-      <br/>
-      {/* PAGINATION */}
+      </table>
+
       <div className="pagination">
         <button disabled={page === 1} onClick={() => setPage(p => p - 1)}>
           ◀ Prev
@@ -122,29 +114,17 @@ const AdminRegistrations = () => {
           Page {page} of {totalPages}
         </span>
 
-        <button
-          disabled={page === totalPages}
-          onClick={() => setPage(p => p + 1)}
-        >
+        <button disabled={page === totalPages} onClick={() => setPage(p => p + 1)}>
           Next ▶
-        </button><br/>
+        </button>
       </div>
 
-      {/* DELETE MODAL */}
       {deleteId && (
         <div className="modal">
           <div className="modal-box">
             <h3>Confirm Delete</h3>
-            <p>Are you sure you want to delete this registration?</p>
-
-            <div className="modal-actions">
-              <button className="danger" onClick={confirmDelete}>
-                Delete
-              </button>
-              <button onClick={() => setDeleteId(null)}>
-                Cancel
-              </button>
-            </div>
+            <button onClick={confirmDelete}>Delete</button>
+            <button onClick={() => setDeleteId(null)}>Cancel</button>
           </div>
         </div>
       )}
@@ -153,7 +133,3 @@ const AdminRegistrations = () => {
 };
 
 export default AdminRegistrations;
-
-
-
-

@@ -27,7 +27,7 @@ const AdminLogin = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/admin/login",
+        "https://event-registration-backend-7d42.onrender.com/api/admin/login",
         credentials
       );
 

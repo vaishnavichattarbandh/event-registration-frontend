@@ -7,20 +7,36 @@ const EventRegistrations = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/registrations")
+    axios
+      .get(
+        "https://event-registration-backend-7d42.onrender.com/api/registrations",
+        {
+          params: {
+            page: 1,
+            limit: 1000 // fetch all for filtering
+          }
+        }
+      )
       .then(res => {
-        const filtered = res.data.filter(
+        const list = res.data.data || [];
+
+        const filtered = list.filter(
           r => r.eventName === decodeURIComponent(eventName)
         );
+
         setData(filtered);
+      })
+      .catch(err => {
+        console.error("Event registration fetch error:", err);
+        setData([]);
       });
   }, [eventName]);
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Registrations for {decodeURIComponent(eventName)}</h2>
+      <h2>📋 Registrations for {decodeURIComponent(eventName)}</h2>
 
-      <table>
+      <table border="1" cellPadding="10" width="100%">
         <thead>
           <tr>
             <th>Name</th>
@@ -29,15 +45,24 @@ const EventRegistrations = () => {
             <th>Email</th>
           </tr>
         </thead>
+
         <tbody>
-          {data.map((r, i) => (
-            <tr key={i}>
-              <td>{r.fullName}</td>
-              <td>{r.rollNo}</td>
-              <td>{r.department}</td>
-              <td>{r.email}</td>
+          {data.length === 0 ? (
+            <tr>
+              <td colSpan="4" align="center">
+                No registrations found
+              </td>
             </tr>
-          ))}
+          ) : (
+            data.map((r, i) => (
+              <tr key={i}>
+                <td>{r.fullName}</td>
+                <td>{r.rollNo}</td>
+                <td>{r.department}</td>
+                <td>{r.email}</td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>
@@ -45,3 +70,4 @@ const EventRegistrations = () => {
 };
 
 export default EventRegistrations;
+

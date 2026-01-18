@@ -28,7 +28,7 @@ const AdminDashboard = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/registrations")
+      .get("https://event-registration-backend-7d42.onrender.com/api/registrations")
       .then(res => {
         // ✅ FIX: support paginated & non-paginated response
         const list = Array.isArray(res.data)

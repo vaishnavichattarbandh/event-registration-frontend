@@ -36,7 +36,7 @@ const Register = () => {
 
       // ✅ CORRECT API ROUTE
       await axios.post(
-        "http://localhost:5000/api/registrations",
+        "https://event-registration-backend-xxxx.onrender.com/api/register",
         formData
       );
 
