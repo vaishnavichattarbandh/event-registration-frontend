@@ -1,35 +1,23 @@
-/* Overall layout */
 .layout {
   display: flex;
-  min-height: 100vh;
-  background-color: #f1f5f9;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 260px;
-  background: #ffffff;
-  border-right: 1px solid #e5e7eb;
-  flex-shrink: 0;
-}
-
-/* Right side (Navbar + Content) */
+/* Sidebar is fixed → right panel must shift */
 .right-panel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+  margin-left: 220px; /* SAME as sidebar width */
+  width: calc(100% - 220px);
+  min-height: 100vh;
+  box-sizing: border-box;
 }
 
-/* Content area */
 .main-content {
-  flex: 1;
-  padding: 32px;
-  display: flex;
-  justify-content: center;   /* centers dashboard horizontally */
+  padding: 20px;
 }
 
-/* Dashboard width control */
-.dashboard {
-  width: 100%;
-  max-width: 1200px;   /* keeps it centered on right side */
+/* 📱 MOBILE FIX */
+@media (max-width: 768px) {
+  .right-panel {
+    margin-left: 0;
+    width: 100%;
+  }
 }
