@@ -5,20 +5,16 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
 
-      {/* HERO SECTION */}
-      <section className="hero">
+      {/* ✅ WELCOME CARD (REPLACED HERO) */}
+      <section className="welcome-card">
         <h1>🎉 Welcome to Aurora’s Event Hub</h1>
         <p>
           Discover workshops, hackathons, tech talks and cultural events
         </p>
 
-        <div className="hero-buttons">
-          <Link to="/events" className="btn primary">
-            Explore Events
-          </Link>
-          <Link to="/admin/login" className="btn outline">
-            Admin Login
-          </Link>
+        <div className="welcome-links">
+          <Link to="/events">Explore Events</Link>
+          <Link to="/admin/login">Admin Login</Link>
         </div>
       </section>
 
@@ -66,17 +62,17 @@ const Dashboard = () => {
         <div className="upcoming">
           <div>
             <strong>Hackathon 2026</strong>
-            <p>📍18 April,2026 Auditorium • 🕘 10 AM</p>
+            <p>📍18 April, 2026 Auditorium • 🕘 10 AM</p>
           </div>
 
           <div>
             <strong>AI Tech Talk</strong>
-            <p>📍19 April,2026 Seminar Hall • 🕓 4 PM</p>
+            <p>📍19 April, 2026 Seminar Hall • 🕓 4 PM</p>
           </div>
 
           <div>
             <strong>Design Workshop</strong>
-            <p>📍2- April,2026 Lab 2 • 🕑 2 PM</p>
+            <p>📍2 April, 2026 Lab 2 • 🕑 2 PM</p>
           </div>
         </div>
       </section>
