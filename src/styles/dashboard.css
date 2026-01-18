@@ -2,7 +2,47 @@
   padding: 20px;
 }
 
-/* HERO */
+/* =========================
+   WELCOME / HERO CARD
+========================= */
+
+.welcome-card {
+  background: #111827;
+  border-radius: 14px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  color: white;
+}
+
+.welcome-card h1 {
+  margin-bottom: 10px;
+  font-size: 26px;
+  color: white;
+}
+
+.welcome-card p {
+  color: #d1d5db;
+  margin-bottom: 20px;
+}
+
+.welcome-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.welcome-links a {
+  color: #a5b4fc;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* =========================
+   HERO (OLD SECTION)
+========================= */
+
 .hero {
   text-align: center;
   padding: 40px 20px;
@@ -16,7 +56,10 @@
   flex-wrap: wrap;
 }
 
-/* SECTIONS */
+/* =========================
+   SECTIONS
+========================= */
+
 .section {
   margin-top: 40px;
 }
@@ -26,12 +69,12 @@
 }
 
 /* =========================
-   EVENT GRID (IMPORTANT)
+   EVENT GRID
 ========================= */
 
 .event-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Desktop */
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -77,7 +120,7 @@
 /* MOBILE */
 @media (max-width: 640px) {
   .event-grid {
-    grid-template-columns: repeat(2, 1fr); /* ✅ 2 cards side by side */
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .event-card {
@@ -89,7 +132,10 @@
   }
 }
 
-/* CATEGORIES */
+/* =========================
+   CATEGORIES
+========================= */
+
 .categories {
   display: flex;
   gap: 12px;
@@ -102,14 +148,20 @@
   border-radius: 20px;
 }
 
-/* UPCOMING */
+/* =========================
+   UPCOMING
+========================= */
+
 .upcoming {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* CTA */
+/* =========================
+   CTA
+========================= */
+
 .cta {
   margin-top: 60px;
   padding: 40px 20px;
@@ -117,34 +169,4 @@
   background: #111827;
   color: white;
   border-radius: 12px;
-}
-.welcome-card {
-  background: #111827;
-  border-radius: 14px;
-  padding: 30px;
-  margin-bottom: 30px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  text-align: center;
-}
-
-.welcome-card h1 {
-  margin-bottom: 10px;
-  font-size: 26px;
-}
-
-.welcome-card p {
-  color: #6b7280;
-  margin-bottom: 20px;
-}
-
-.welcome-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.welcome-links a {
-  color: #4f46e5;
-  font-weight: 500;
-  text-decoration: none;
 }
