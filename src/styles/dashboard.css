@@ -118,3 +118,33 @@
   color: white;
   border-radius: 12px;
 }
+.welcome-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.welcome-card h1 {
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.welcome-card p {
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.welcome-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.welcome-links a {
+  color: #4f46e5;
+  font-weight: 500;
+  text-decoration: none;
+}
