@@ -1,17 +1,13 @@
-import { Outlet } from "react-router-dom";
-import Navbar from "./components/navbar";
-import Sidebar from "./components/sidebar";
+import Sidebar from "./sidebar";
+import Navbar from "./navbar";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <div className="app-layout">
-      <Navbar />
-
-      <div className="content-wrapper">
-        <Sidebar />
-        <main className="page-content">
-          <Outlet />
-        </main>
+      <Sidebar />
+      <div className="main-content">
+        <Navbar />
+        {children}
       </div>
     </div>
   );

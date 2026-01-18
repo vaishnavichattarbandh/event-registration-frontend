@@ -54,5 +54,14 @@
   width: 100%;
   max-width: 1200px;   /* keeps it in the middle-right */
 }
+.app-layout {
+  display: flex;
+}
+
+.main-content {
+  margin-left: 250px; /* SAME AS SIDEBAR WIDTH */
+  width: calc(100% - 250px);
+  padding: 20px;
+}
 
 
