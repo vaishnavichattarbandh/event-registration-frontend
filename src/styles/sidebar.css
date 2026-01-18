@@ -31,12 +31,10 @@
 /* 🔹 MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    min-height: auto;
     position: relative;
+    width: 100%;
+    min-height: auto;
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
     align-items: center;
   }

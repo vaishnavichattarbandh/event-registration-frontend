@@ -16,6 +16,10 @@
 
 /* 📱 MOBILE FIX */
 @media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
   .right-panel {
     margin-left: 0;
     width: 100%;
