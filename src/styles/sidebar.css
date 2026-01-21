@@ -8,19 +8,17 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1002; /* above overlay */
+  z-index: 1002;
   transition: transform 0.3s ease;
-  transform: translateX(0); /* visible by default on desktop */
+  transform: translateX(0); /* desktop visible */
 }
 
-/* Logo */
 .logo {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 24px;
 }
 
-/* Links */
 .nav-link {
   display: block;
   padding: 10px 12px;
@@ -42,23 +40,20 @@
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  /* Hide sidebar by default */
   .sidebar {
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* hidden */
   }
 
-  /* Show when open */
   .sidebar.open {
-    transform: translateX(0);
+    transform: translateX(0); /* visible */
   }
 
-  /* Hamburger button */
   .hamburger {
     display: block;
     position: fixed;
     top: 1rem;
     left: 1rem;
-    z-index: 1100; /* above sidebar */
+    z-index: 1100;
     font-size: 2rem;
     background: none;
     border: none;
@@ -72,16 +67,15 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
-  z-index: 1001; /* below sidebar but above content */
+  z-index: 1001;
 }
 
 /* ================= MAIN CONTENT ================= */
 .main-content {
   padding: 20px;
-  margin-left: 240px; /* leave space for desktop sidebar */
+  margin-left: 240px; /* desktop */
 }
 
-/* On mobile, remove left margin */
 @media (max-width: 768px) {
   .main-content {
     margin-left: 0;
