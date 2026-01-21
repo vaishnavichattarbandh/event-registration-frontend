@@ -4,6 +4,7 @@ import "../styles/sidebar.css";
 const Sidebar = ({ isOpen, closeSidebar }) => {
   return (
     <>
+      {/* Sidebar */}
       <aside className={`sidebar ${isOpen ? "open" : ""}`}>
         <h2 className="logo">Aurora's Event Hub</h2>
 
@@ -11,9 +12,11 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
           <NavLink to="/" end className="nav-link" onClick={closeSidebar}>
             🏠 Dashboard
           </NavLink>
+
           <NavLink to="/events" className="nav-link" onClick={closeSidebar}>
             📅 Events
           </NavLink>
+
           <NavLink
             to="/admin/dashboard"
             className="nav-link"
@@ -21,6 +24,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
           >
             🛠 Admin Dashboard
           </NavLink>
+
           <NavLink
             to="/admin/registrations"
             className="nav-link"
@@ -31,12 +35,11 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
         </nav>
       </aside>
 
+      {/* Overlay */}
       {isOpen && <div className="overlay" onClick={closeSidebar} />}
     </>
   );
 };
 
 export default Sidebar;
-
-
 

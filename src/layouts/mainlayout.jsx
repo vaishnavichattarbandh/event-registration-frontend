@@ -11,9 +11,16 @@ const MainLayout = () => {
 
   return (
     <>
+      {/* Sidebar + overlay */}
       <Sidebar isOpen={sidebarOpen} closeSidebar={closeSidebar} />
 
-      <div className="right-panel">
+      {/* Main Content */}
+      <div
+        className="right-panel"
+        style={{
+          marginLeft: window.innerWidth > 768 ? "240px" : "0",
+        }}
+      >
         <Navbar onMenuClick={toggleSidebar} />
         <main className="main-content">
           <Outlet />
@@ -24,5 +31,4 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
-
 
