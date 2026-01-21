@@ -12,6 +12,23 @@
   top: 0;
   z-index: 1000;
   font-family: "Agency FB", Arial, sans-serif;
+
+  /* Desktop: shift navbar for sidebar */
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  flex-wrap: nowrap;
+}
+
+/* Mobile: full width, allow wrapping */
+@media (max-width: 768px) {
+  .navbar {
+    margin-left: 0;
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 12px;
+    flex-wrap: wrap; /* search + admin stack if needed */
+    gap: 8px;
+  }
 }
 
 /* ===============================
@@ -53,8 +70,9 @@
    SEARCH INPUT
 ================================ */
 .search {
-  flex: 1;
+  flex: 1 1 auto;       /* allow shrinking on mobile */
   max-width: 350px;
+  min-width: 0;         /* prevent overflow in flex container */
   padding: 8px 12px;
   border-radius: 6px;
   border: 1px solid #d1d5db;
@@ -74,6 +92,7 @@
   align-items: center;
   gap: 16px;
   margin-left: auto; /* push right content */
+  flex-shrink: 0;    /* prevent shrinking on mobile */
 }
 
 /* ===============================
@@ -169,7 +188,5 @@
 .btn.confirm:hover {
   background: #dc2626;
 }
-
-
 
 
