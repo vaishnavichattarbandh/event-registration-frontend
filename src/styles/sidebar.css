@@ -8,8 +8,9 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1001;
+  z-index: 1002; /* above overlay */
   transition: transform 0.3s ease;
+  transform: translateX(0); /* visible by default on desktop */
 }
 
 /* Logo */
@@ -27,6 +28,11 @@
   color: #e5e7eb;
   text-decoration: none;
   border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.nav-link:hover {
+  background: #374151;
 }
 
 .nav-link.active {
@@ -36,12 +42,28 @@
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
+  /* Hide sidebar by default */
   .sidebar {
     transform: translateX(-100%);
   }
 
+  /* Show when open */
   .sidebar.open {
     transform: translateX(0);
+  }
+
+  /* Hamburger button */
+  .hamburger {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100; /* above sidebar */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
   }
 }
 
@@ -50,5 +72,18 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
-  z-index: 1000;
+  z-index: 1001; /* below sidebar but above content */
+}
+
+/* ================= MAIN CONTENT ================= */
+.main-content {
+  padding: 20px;
+  margin-left: 240px; /* leave space for desktop sidebar */
+}
+
+/* On mobile, remove left margin */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+  }
 }

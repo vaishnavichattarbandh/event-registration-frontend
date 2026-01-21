@@ -5,9 +5,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
   return (
     <>
       {/* Overlay (mobile only) */}
-      {isOpen && (
-        <div className="overlay" onClick={closeSidebar} />
-      )}
+      {isOpen && <div className="overlay" onClick={closeSidebar} />}
 
       {/* Sidebar */}
       <aside className={`sidebar ${isOpen ? "open" : ""}`}>
