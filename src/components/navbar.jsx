@@ -19,8 +19,12 @@ const Navbar = ({ toggleSidebar }) => {
   return (
     <>
       <nav className="navbar">
-        {/* ☰ Hamburger (mobile only) */}
-        <button className="hamburger" onClick={toggleSidebar}>
+        {/* ☰ Hamburger (MOBILE ONLY) */}
+        <button
+          className="hamburger"
+          onClick={toggleSidebar}
+          aria-label="Open sidebar"
+        >
           ☰
         </button>
 
@@ -35,19 +39,21 @@ const Navbar = ({ toggleSidebar }) => {
           </button>
         )}
 
+        {/* 🔍 Search */}
         <input
           type="text"
           placeholder="Search events..."
           className="search"
         />
 
+        {/* Right Section */}
         <div className="nav-right">
-          <span>🔔</span>
+          <span className="bell">🔔</span>
 
           <div className="admin">
             <img
               src="https://i.pravatar.cc/40"
-              alt="admin"
+              alt="Admin"
             />
             <span>Admin</span>
 
@@ -91,4 +97,5 @@ const Navbar = ({ toggleSidebar }) => {
 };
 
 export default Navbar;
+
 

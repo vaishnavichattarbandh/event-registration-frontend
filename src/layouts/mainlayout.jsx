@@ -1,20 +1,32 @@
-import { useState } from "react";
-import Sidebar from "../components/sidebar";
-import Navbar from "../components/navbar";
 import { Outlet } from "react-router-dom";
+import { useState } from "react";
+import Navbar from "../components/navbar";
+import Sidebar from "../components/sidebar";
 
 const MainLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
     <>
-      <Sidebar
-        isOpen={sidebarOpen}
-        closeSidebar={() => setSidebarOpen(false)}
-      />
+      {/* Sidebar */}
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <div className="right-panel">
-        <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+      {/* Overlay (mobile only) */}
+      {sidebarOpen && (
+        <div
+          className="overlay"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
+      {/* Main Content */}
+      <div
+        className="right-panel"
+        style={{
+          marginLeft: window.innerWidth > 768 ? "240px" : "0",
+        }}
+      >
+        <Navbar onMenuClick={() => setSidebarOpen(true)} />
         <main className="main-content">
           <Outlet />
         </main>
@@ -24,7 +36,6 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
-
 
 
 
