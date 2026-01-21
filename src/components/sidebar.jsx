@@ -1,37 +1,45 @@
 import { NavLink } from "react-router-dom";
 import "../styles/sidebar.css";
 
-const Sidebar = ({ isOpen, toggleSidebar }) => {
+const Sidebar = ({ isOpen, closeSidebar }) => {
   return (
-    <aside className={`sidebar ${isOpen ? "open" : ""}`}>
-      <h2 className="logo">Aurora's Event Hub</h2>
+    <>
+      {/* Overlay (mobile only) */}
+      {isOpen && (
+        <div className="overlay" onClick={closeSidebar} />
+      )}
 
-      <nav className="nav-links">
-        <NavLink to="/" end className="nav-link" onClick={toggleSidebar}>
-          🏠 Dashboard
-        </NavLink>
+      {/* Sidebar */}
+      <aside className={`sidebar ${isOpen ? "open" : ""}`}>
+        <h2 className="logo">Aurora's Event Hub</h2>
 
-        <NavLink to="/events" className="nav-link" onClick={toggleSidebar}>
-          📅 Events
-        </NavLink>
+        <nav className="nav-links">
+          <NavLink to="/" end className="nav-link" onClick={closeSidebar}>
+            🏠 Dashboard
+          </NavLink>
 
-        <NavLink
-          to="/admin/dashboard"
-          className="nav-link"
-          onClick={toggleSidebar}
-        >
-          🛠 Admin Dashboard
-        </NavLink>
+          <NavLink to="/events" className="nav-link" onClick={closeSidebar}>
+            📅 Events
+          </NavLink>
 
-        <NavLink
-          to="/admin/registrations"
-          className="nav-link"
-          onClick={toggleSidebar}
-        >
-          📄 Registrations
-        </NavLink>
-      </nav>
-    </aside>
+          <NavLink
+            to="/admin/dashboard"
+            className="nav-link"
+            onClick={closeSidebar}
+          >
+            🛠 Admin Dashboard
+          </NavLink>
+
+          <NavLink
+            to="/admin/registrations"
+            className="nav-link"
+            onClick={closeSidebar}
+          >
+            📄 Registrations
+          </NavLink>
+        </nav>
+      </aside>
+    </>
   );
 };
 

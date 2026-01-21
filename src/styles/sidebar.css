@@ -1,3 +1,5 @@
+/* ================= SIDEBAR ================= */
+
 .sidebar {
   width: 220px;
   height: 100vh;
@@ -15,16 +17,22 @@
 .logo {
   font-size: 20px;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
 /* Links */
 .nav-link {
   display: block;
-  padding: 10px;
+  padding: 10px 12px;
   margin: 8px 0;
   color: #e5e7eb;
   text-decoration: none;
   border-radius: 6px;
+  transition: background 0.2s ease;
+}
+
+.nav-link:hover {
+  background: #1f2937;
 }
 
 .nav-link.active {
@@ -35,6 +43,7 @@
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
   .sidebar {
+    width: 260px;
     transform: translateX(-100%);
   }
 
@@ -44,9 +53,18 @@
 }
 
 /* ================= OVERLAY ================= */
+
 .overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1000;
+  display: none;
+}
+
+/* Overlay ONLY on mobile */
+@media (max-width: 768px) {
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+  }
 }
