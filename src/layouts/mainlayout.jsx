@@ -6,16 +6,13 @@ import Sidebar from "../components/sidebar";
 const MainLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  const toggleSidebar = () => setSidebarOpen((prev) => !prev);
   const closeSidebar = () => setSidebarOpen(false);
-  const openSidebar = () => setSidebarOpen(true);
 
   return (
     <>
-      {/* Sidebar */}
+      {/* Sidebar + overlay */}
       <Sidebar isOpen={sidebarOpen} closeSidebar={closeSidebar} />
-
-      {/* Overlay (mobile only) */}
-      {sidebarOpen && <div className="overlay" onClick={closeSidebar} />}
 
       {/* Main Content */}
       <div
@@ -24,7 +21,7 @@ const MainLayout = () => {
           marginLeft: window.innerWidth > 768 ? "240px" : "0",
         }}
       >
-        <Navbar onMenuClick={openSidebar} />
+        <Navbar onMenuClick={toggleSidebar} />
         <main className="main-content">
           <Outlet />
         </main>
@@ -34,3 +31,4 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
+

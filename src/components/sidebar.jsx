@@ -4,9 +4,6 @@ import "../styles/sidebar.css";
 const Sidebar = ({ isOpen, closeSidebar }) => {
   return (
     <>
-      {/* Overlay (mobile only) */}
-      {isOpen && <div className="overlay" onClick={closeSidebar} />}
-
       {/* Sidebar */}
       <aside className={`sidebar ${isOpen ? "open" : ""}`}>
         <h2 className="logo">Aurora's Event Hub</h2>
@@ -37,8 +34,12 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
           </NavLink>
         </nav>
       </aside>
+
+      {/* Overlay */}
+      {isOpen && <div className="overlay" onClick={closeSidebar} />}
     </>
   );
 };
 
 export default Sidebar;
+
