@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Sidebar from "../components/Sidebar";
-import Navbar from "../components/Navbar";
+import Sidebar from "../components/sidebar";
+import Navbar from "../components/navbar";
 import { Outlet } from "react-router-dom";
 
 const MainLayout = () => {
