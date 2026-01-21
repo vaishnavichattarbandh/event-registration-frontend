@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [showLogoutModal, setShowLogoutModal] = useState(false);
@@ -18,7 +18,12 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar">
+      <nav className="navbar">
+        {/* ☰ Hamburger (mobile only) */}
+        <button className="hamburger" onClick={toggleSidebar}>
+          ☰
+        </button>
+
         {/* 🔙 Back Button */}
         {!hideBackBtn && (
           <button
@@ -37,7 +42,8 @@ const Navbar = () => {
         />
 
         <div className="nav-right">
-          🔔
+          <span>🔔</span>
+
           <div className="admin">
             <img
               src="https://i.pravatar.cc/40"
@@ -53,7 +59,7 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </div>
+      </nav>
 
       {/* LOGOUT CONFIRM MODAL */}
       {showLogoutModal && (
@@ -85,3 +91,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

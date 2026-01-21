@@ -1,27 +1,33 @@
 import { NavLink } from "react-router-dom";
 import "../styles/sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? "open" : ""}`}>
       <h2 className="logo">Aurora's Event Hub</h2>
 
       <nav className="nav-links">
-        {/* PUBLIC */}
-        <NavLink to="/" end className="nav-link">
+        <NavLink to="/" end className="nav-link" onClick={toggleSidebar}>
           🏠 Dashboard
         </NavLink>
 
-        <NavLink to="/events" className="nav-link">
+        <NavLink to="/events" className="nav-link" onClick={toggleSidebar}>
           📅 Events
         </NavLink>
 
-        {/* ADMIN */}
-        <NavLink to="/admin/dashboard" className="nav-link">
+        <NavLink
+          to="/admin/dashboard"
+          className="nav-link"
+          onClick={toggleSidebar}
+        >
           🛠 Admin Dashboard
         </NavLink>
 
-        <NavLink to="/admin/registrations" className="nav-link">
+        <NavLink
+          to="/admin/registrations"
+          className="nav-link"
+          onClick={toggleSidebar}
+        >
           📄 Registrations
         </NavLink>
       </nav>

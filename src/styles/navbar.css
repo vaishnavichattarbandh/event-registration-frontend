@@ -4,7 +4,7 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
   padding: 12px 20px;
   background: #ffffff;
   border-bottom: 1px solid #e5e7eb;
@@ -15,12 +15,29 @@
 }
 
 /* ===============================
+   HAMBURGER (MOBILE ONLY)
+================================ */
+.hamburger {
+  font-size: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+/* Show hamburger only on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+}
+
+/* ===============================
    BACK BUTTON
 ================================ */
 .back-btn {
   font-size: 20px;
   padding: 6px 10px;
-  margin-right: 12px;
   cursor: pointer;
   border: none;
   background: #f3f4f6;
@@ -56,6 +73,7 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-left: auto; /* push right content */
 }
 
 /* ===============================

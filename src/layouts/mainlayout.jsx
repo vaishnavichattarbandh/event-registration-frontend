@@ -1,18 +1,21 @@
+import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/navbar";
 import Sidebar from "../components/sidebar";
 import "../styles/mainlayout.css";
 
 const MainLayout = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
   return (
     <div className="layout">
-      {/* Sidebar */}
-      <Sidebar />
+      <Sidebar
+        isOpen={isSidebarOpen}
+        closeSidebar={() => setIsSidebarOpen(false)}
+      />
 
-      {/* Right Side */}
       <div className="right-panel">
-        <Navbar />
-
+        <Navbar toggleSidebar={() => setIsSidebarOpen(!isSidebarOpen)} />
         <main className="main-content">
           <Outlet />
         </main>
@@ -22,6 +25,7 @@ const MainLayout = () => {
 };
 
 export default MainLayout;
+
 
 
 
