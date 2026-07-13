@@ -1,14 +1,37 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ===============================
+   MAIN LAYOUT
+=============================== */
+
+.app-structural-frame {
+  display: flex;
+  min-height: 100vh;
 }
 
-html, body, #root {
-  height: 100%;
-  width: 100%;
+.right-panel-view {
+  flex: 1;
+  margin-left: 240px; /* same as sidebar width */
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+  min-height: 100vh;
 }
-body {
-  font-family: "Agency FB", Arial, sans-serif;
-  font-size: 18px;   /* ⬅ increase this */
+
+.main-content-viewport {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* ===============================
+   MOBILE
+=============================== */
+
+@media (max-width: 768px) {
+  .right-panel-view {
+    margin-left: 0;
+  }
+
+  .main-content-viewport {
+    padding: 15px;
+  }
 }
