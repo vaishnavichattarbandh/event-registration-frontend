@@ -8,21 +8,40 @@ const Events = () => {
     {
       id: 1,
       title: "Hackathon",
-      date: "18 April 2026",
+      date: "18 February 2026",
       organizer: "CSE Department"
     },
     {
       id: 2,
       title: "Tech Talk",
-      date: "19 April 2026",
+      date: "20 March 2026",
       organizer: "ECE Department"
     },
     {
       id: 3,
       title: "Workshop",
-      date: "20 April 2026",
+      date: "2 April 2026",
       organizer: "IT Department"
+    },
+    {
+      id: 4,
+      title: "Cultural Fest",
+      date: "10 April 2026",
+      organizer: "Cultural Department"
+    },
+    {
+      id: 5,
+      title: "NextGen Entreprenuers",
+      date: "21 April 2026",
+      organizer: "E-Cell Department"
+    },
+    {
+      id: 6,
+      title: "Beat Bash",
+      date: "28 April 2026",
+      organizer: "Cultural Department",
     }
+    
   ];
 
   return (

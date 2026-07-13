@@ -1,60 +1,94 @@
 .register-page {
-  background-color: #121212;
+  background-color: #ffffff;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* FORM CARD */
 .register-form {
-  background-color: #1e1e1e;
-  padding: 30px;
+  background-color: #111827;
+  padding: 32px;
   width: 400px;
-  border-radius: 8px;
-  border: 1px solid #2a2a2a;
+  border-radius: 14px;
+  box-shadow:
+    0 0 20px rgba(17, 24, 39, 0.6),
+    0 0 40px rgba(17, 24, 39, 0.4);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* subtle lift on hover */
+.register-form:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 25px rgba(17, 24, 39, 0.8),
+    0 0 60px rgba(17, 24, 39, 0.6);
 }
 
 .register-form h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
+/* INPUTS */
 .register-form input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 12px;
-  background-color: #121212;
-  border: 1px solid #3a3a3a;
+  padding: 12px;
+  margin-bottom: 14px;
+  background-color: transparent;
+  border: 1.5px solid #ffffff;
   color: #ffffff;
-  border-radius: 5px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
 }
 
 .register-form input::placeholder {
-  color: #9a9a9a;
+  color: #ffffff;
+  opacity: 0.8;
 }
 
+/* input glow on focus */
+.register-form input:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+  border-color: #ffffff;
+}
+
+/* ROW */
 .row {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
+/* BUTTON */
 .register-form button {
   width: 100%;
-  padding: 10px;
-  background-color: #3a3a3a;
+  padding: 12px;
+  margin-top: 8px;
+  background-color: #ffffff;
   border: none;
-  color: #ffffff;
-  border-radius: 5px;
+  color: #111827;
+  border-radius: 10px;
   cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
 }
 
+/* button glow */
 .register-form button:hover {
-  background-color: #5a5a5a;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.9);
+  transform: scale(1.02);
 }
+
+/* ERROR TEXT */
 .error {
-  color: #ff4d4d;
+  color: #ffffff;
   font-size: 12px;
   margin-bottom: 8px;
-  display: block;
 }
+

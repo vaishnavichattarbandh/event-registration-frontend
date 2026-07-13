@@ -1,177 +1,159 @@
-/* ===============================
-   LAYOUT
-================================ */
-.layout {
-  display: flex;
-}
-
-/* ===============================
-   SIDEBAR
-================================ */
-.sidebar {
-  width: 240px; /* Sidebar width */
-  height: 100vh;
-  background: #111827;
-  color: white;
-  padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1002; /* above overlay */
-  transition: transform 0.3s ease;
-  transform: translateX(0); /* visible by default on desktop */
-}
-
-.sidebar.open {
-  transform: translateX(0);
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%); /* hidden on mobile */
-  }
-
-  .sidebar.open {
-    transform: translateX(0); /* show when open */
-  }
-}
-
-/* ===============================
-   OVERLAY (mobile only)
-================================ */
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 1001; /* below sidebar but above content */
-}
-
-/* ===============================
-   RIGHT PANEL
-================================ */
-.right-panel {
-  margin-left: 240px; /* shift right for sidebar on desktop */
-  width: calc(100% - 240px);
+/* =============================== LAYOUT ================================ */ 
+.layout { 
+  display: flex; 
+  width: 100vw;
   min-height: 100vh;
-  box-sizing: border-box;
-  transition: margin-left 0.3s ease;
-}
+  overflow-x: hidden;
+} 
 
-.main-content {
-  padding: 20px;
-}
+/* =============================== SIDEBAR ================================ */ 
+.sidebar { 
+  width: 240px; /* Sidebar width */ 
+  height: 100vh; 
+  background: #111827; 
+  color: white; 
+  padding: 20px; 
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  z-index: 1002; /* above overlay */ 
+  transition: transform 0.3s ease; 
+  transform: translateX(0); /* visible by default on desktop */ 
+} 
 
-/* Mobile: right panel full width */
-@media (max-width: 768px) {
-  .layout {
-    display: block;
-  }
+.sidebar.open { 
+  transform: translateX(0); 
+} 
 
-  .right-panel {
-    margin-left: 0;
-    width: 100%;
-  }
-}
+@media (max-width: 768px) { 
+  .sidebar { 
+    transform: translateX(-100%); /* hidden on mobile */ 
+  } 
+  .sidebar.open { 
+    transform: translateX(0); /* show when open */ 
+  } 
+} 
 
-/* ===============================
-   NAVBAR
-================================ */
-.navbar {
+/* =============================== OVERLAY (mobile only) ================================ */ 
+.overlay { 
+  position: fixed; 
+  inset: 0; 
+  background: rgba(0, 0, 0, 0.45); 
+  z-index: 1001; /* below sidebar but above content */ 
+} 
+
+/* =============================== RIGHT PANEL ================================ */ 
+.right-panel { 
+  flex: 1;                     /* Automatically fills the remaining width next to the sidebar */
+  margin-left: 240px;          /* Matches the sidebar width space cleanly on desktop */
+  min-height: 100vh; 
+  box-sizing: border-box; 
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  font-family: "Agency FB", Arial, sans-serif;
+  flex-direction: column;      /* Stacks your Navbar and Main Content vertically */
+  min-width: 0;                /* Prevents layout blowouts */
+} 
 
-  /* Desktop width */
-  margin-left: 0;
-  width: 100%;
-}
-
-@media (min-width: 769px) {
-  .navbar {
-    width: calc(100% - 240px); /* full width minus sidebar */
-    margin-left: 240px;
-  }
-}
-
-/* ===============================
-   HAMBURGER (MOBILE ONLY)
-================================ */
-.hamburger {
-  font-size: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-}
-
-/* ===============================
-   SEARCH INPUT
-================================ */
-.search {
+.main-content { 
+  padding: 20px; 
   flex: 1;
-  max-width: 350px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  outline: none;
-  font-size: 14px;
-  min-width: 0; /* prevent flex overflow */
-}
-
-.search:focus {
-  border-color: #2563eb;
-}
-
-/* ===============================
-   RIGHT SIDE OF NAVBAR
-================================ */
-.nav-right {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-left: auto; /* push right side content */
-}
+  flex-direction: column;
+  align-items: center;         /* ✅ THIS S_N_A_P_S YOUR EVENTS AND DASHBOARDS PERFECTLY IN THE CENTER */
+  justify-content: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+} 
 
-/* ===============================
-   ADMIN AREA
-================================ */
-.admin {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+/* Mobile: right panel full width */ 
+@media (max-width: 768px) { 
+  .layout { 
+    display: block; 
+  } 
+  .right-panel { 
+    margin-left: 0; 
+    width: 100%; 
+  } 
+} 
 
-.admin img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
+/* =============================== NAVBAR ================================ */ 
+.navbar { 
+  display: flex; 
+  align-items: center; 
+  gap: 12px; 
+  padding: 12px 20px; 
+  background: #ffffff; 
+  border-bottom: 1px solid #e5e7eb; 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+  font-family: "Agency FB", Arial, sans-serif; 
+  width: 100%;                 /* Takes full width of the remaining right panel container */
+} 
 
-.logout-btn {
-  margin-left: 10px;
-  padding: 6px 12px;
-  font-size: 13px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #ef4444;
-  color: #ffffff;
-  transition: background 0.2s ease;
-}
+/* =============================== HAMBURGER (MOBILE ONLY) ================================ */ 
+.hamburger { 
+  font-size: 22px; 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  display: none; 
+} 
 
-.logout-btn:hover {
-  background: #dc2626;
+@media (max-width: 768px) { 
+  .hamburger { 
+    display: block; 
+  } 
+} 
+
+/* =============================== SEARCH INPUT ================================ */ 
+.search { 
+  flex: 1; 
+  max-width: 350px; 
+  padding: 8px 12px; 
+  border-radius: 6px; 
+  border: 1px solid #d1d5db; 
+  outline: none; 
+  font-size: 14px; 
+  min-width: 0; /* prevent flex overflow */ 
+} 
+
+.search:focus { 
+  border-color: #2563eb; 
+} 
+
+/* =============================== RIGHT SIDE OF NAVBAR ================================ */ 
+.nav-right { 
+  display: flex; 
+  align-items: center; 
+  gap: 16px; 
+  margin-left: auto; /* push right side content */ 
+} 
+
+/* =============================== ADMIN AREA ================================ */ 
+.admin { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+} 
+
+.admin img { 
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%; 
+} 
+
+.logout-btn { 
+  margin-left: 10px; 
+  padding: 6px 12px; 
+  font-size: 13px; 
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  background: #ef4444; 
+  color: #ffffff; 
+  transition: background 0.2s ease; 
+} 
+
+.logout-btn:hover { 
+  background: #dc2626; 
 }

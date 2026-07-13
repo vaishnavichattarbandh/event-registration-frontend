@@ -1,1 +1,35 @@
+/* ==========================================================================
+   GLOBAL APP LAYOUT CENTER FIX
+   ========================================================================== */
+
+/* 1. Target the main wrapper container around your Sidebar and Pages */
+#root > div, .app-container, .main-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr; /* 260px for sidebar, 1fr for the page content */
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color: #f3f4f6; /* Smooth slate background for the entire page workspace */
+}
+
+/* 2. Target the main content area panel sitting on the right side */
+main, .content-area, .main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* Centers your Hero Card and Grid cards horizontally */
+  justify-content: flex-start;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 3. Ensure your Sidebar container doesn't break the grid framework layout */
+aside, .sidebar {
+  width: 260px;
+  height: 100vh;
+  position: sticky;          /* Keeps it on the screen smoothly while scrolling */
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
 
