@@ -2,8 +2,6 @@ import { Outlet } from "react-router-dom";
 import { useState } from "react";
 import Navbar from "../components/navbar";
 import Sidebar from "../components/sidebar";
-import "../styles/main-layout-structure.css"; // We will create this simple file next!
-
 const MainLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleSidebar = () => setSidebarOpen((prev) => !prev);
