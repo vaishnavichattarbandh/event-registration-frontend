@@ -1,19 +1,21 @@
 .dashboard {
   padding: 20px;
+  max-width: 1200px;         /* Keeps content from stretching too wide */
+  margin: 0 auto;            /* Centers the entire dashboard block on the screen */
+  width: 100%;               /* Ensures it uses available width */
+  box-sizing: border-box;
 }
 
-/* =========================
-   WELCOME / HERO CARD
-========================= */
-
+/* ========================= WELCOME / HERO CARD ========================= */
 .welcome-card {
   background: #111827;
   border-radius: 14px;
   padding: 30px;
-  margin-bottom: 30px;
+  margin: 0 auto 30px auto;  /* Centers the card and pushes it down */
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   text-align: center;
   color: white;
+  max-width: 1000px;         /* Limits width for an optimal reading layout */
 }
 
 .welcome-card h1 {
@@ -39,10 +41,7 @@
   text-decoration: none;
 }
 
-/* =========================
-   HERO (OLD SECTION)
-========================= */
-
+/* ========================= HERO (OLD SECTION) ========================= */
 .hero {
   text-align: center;
   padding: 40px 20px;
@@ -56,26 +55,30 @@
   flex-wrap: wrap;
 }
 
-/* =========================
-   SECTIONS
-========================= */
-
+/* ========================= SECTIONS ========================= */
 .section {
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* Centers section text headers and contents */
+  width: 100%;
 }
 
 .section h2 {
   margin-bottom: 20px;
+  text-align: center;        /* Centers your subheadings nicely */
 }
 
-/* =========================
-   EVENT GRID
-========================= */
-
+/* ========================= EVENT GRID ========================= */
 .event-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  width: 100%;
+  justify-content: center;   /* Centers the entire grid layout row block */
+  justify-items: center;     /* Centers cards inside their grid blocks */
+  max-width: 1000px;         /* Balances nicely with your hero card width */
+  margin: 0 auto;
 }
 
 /* EVENT CARD */
@@ -87,6 +90,9 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;               /* Ensures individual cards take full grid column cell space */
+  max-width: 320px;          /* Prevents grid columns from looking bloated */
+  box-sizing: border-box;
 }
 
 /* IMAGE */
@@ -106,10 +112,52 @@
   color: #555;
 }
 
-/* =========================
-   RESPONSIVE BREAKPOINTS
-========================= */
+/* ========================= CATEGORIES ========================= */
+.categories {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;   /* Centers your category pill items row */
+  width: 100%;
+}
 
+.categories span {
+  background: #e5e7eb;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+/* ========================= UPCOMING ========================= */
+.upcoming {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;          /* Centers and neatly contains lists like events */
+  margin: 0 auto;
+}
+
+.upcoming div {
+  text-align: left;          /* Keeps individual list details neat and left-aligned */
+  background: #f9fafb;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid #111827;
+}
+
+/* ========================= CTA ========================= */
+.cta {
+  margin: 60px auto 20px auto; /* Centers the call-to-action block container layout */
+  padding: 40px 20px;
+  text-align: center;
+  background: #111827;
+  color: white;
+  border-radius: 12px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+/* ========================= RESPONSIVE BREAKPOINTS ========================= */
 /* TABLET */
 @media (max-width: 1024px) {
   .event-grid {
@@ -122,51 +170,11 @@
   .event-grid {
     grid-template-columns: 1fr;
   }
-
   .event-card {
     padding: 12px;
+    max-width: 100%;
   }
-
   .event-image {
     height: 90px;
   }
-}
-
-/* =========================
-   CATEGORIES
-========================= */
-
-.categories {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.categories span {
-  background: #e5e7eb;
-  padding: 8px 14px;
-  border-radius: 20px;
-}
-
-/* =========================
-   UPCOMING
-========================= */
-
-.upcoming {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-/* =========================
-   CTA
-========================= */
-
-.cta {
-  margin-top: 60px;
-  padding: 40px 20px;
-  text-align: center;
-  background: #111827;
-  color: white;
-  border-radius: 12px;
 }
