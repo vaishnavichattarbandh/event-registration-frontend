@@ -1,192 +1,115 @@
-/* ===============================
-   NAVBAR
-================================ */
-.navbar {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  font-family: "Agency FB", Arial, sans-serif;
+/* =============================== NAVBAR ================================ */ 
+.navbar { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; /* Ensures search bar stays left and profile stays right */
+  gap: 12px; 
+  padding: 12px 20px; 
+  background: #ffffff; 
+  border-bottom: 1px solid #e5e7eb; 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+  font-family: "Agency FB", Arial, sans-serif; 
+  margin-left: 0;                 /* ✅ FIXED: Removed the 240px double margin offset */
+  width: 100%;                    /* ✅ FIXED: Spans cleanly across the available right-panel top space */
+  box-sizing: border-box;
+  flex-wrap: nowrap; 
+} 
 
-  /* Desktop: shift navbar for sidebar */
-  margin-left: 240px;
-  width: calc(100% - 240px);
-  flex-wrap: nowrap;
+/* Mobile: full width, allow wrapping */ 
+@media (max-width: 768px) { 
+  .navbar { 
+    margin-left: 0; 
+    width: 100%; 
+    padding-left: 12px; 
+    padding-right: 12px; 
+    flex-wrap: wrap; /* search + admin stack if needed */ 
+    gap: 8px; 
+  } 
+} 
+
+/* =============================== HAMBURGER (MOBILE ONLY) ================================ */ 
+.hamburger { 
+  font-size: 22px; 
+  background: none; 
+  border: none; 
+  cursor: pointer; 
+  display: none; 
+} 
+
+/* Show hamburger only on mobile */ 
+@media (max-width: 768px) { 
+  .hamburger { 
+    display: block; 
+  } 
+} 
+
+/* =============================== BACK BUTTON ================================ */ 
+.back-btn { 
+  font-size: 20px; 
+  padding: 6px 10px; 
+  cursor: pointer; 
+  border: none; 
+  background: #f3f4f6; 
+  border-radius: 6px; 
+  transition: background 0.2s ease; 
+} 
+
+.back-btn:hover { 
+  background: #e5e7eb; 
+} 
+
+/* =============================== SEARCH INPUT ================================ */ 
+.search { 
+  flex: 1 1 auto; /* allow shrinking on mobile */ 
+  max-width: 350px; 
+  min-width: 0; /* prevent overflow in flex container */ 
+  padding: 8px 12px; 
+  border-radius: 6px; 
+  border: 1px solid #d1d5db; 
+  outline: none; 
+  font-size: 14px; 
+} 
+
+.search:focus { 
+  border-color: #2563eb; 
+} 
+
+/* =============================== RIGHT SIDE ================================ */ 
+.nav-right { 
+  display: flex; 
+  align-items: center; 
+  gap: 16px; 
+  margin-left: auto; /* push right content */ 
+  flex-shrink: 0; /* prevent shrinking on mobile */ 
+} 
+
+/* =============================== ADMIN AREA ================================ */ 
+.admin { 
+  display: flex; 
+  align-items: center; 
+  gap: 8px; 
+} 
+
+.admin img { 
+  width: 40px; 
+  height: 40px; 
+  border-radius: 50%; 
+} 
+
+.logout-btn { 
+  margin-left: 10px; 
+  padding: 6px 12px; 
+  font-size: 13px; 
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  background: #ef4444; 
+  color: #ffffff; 
+  transition: background 0.2s ease; 
+} 
+
+.logout-btn:hover { 
+  background: #dc2626; 
 }
-
-/* Mobile: full width, allow wrapping */
-@media (max-width: 768px) {
-  .navbar {
-    margin-left: 0;
-    width: 100%;
-    padding-left: 12px;
-    padding-right: 12px;
-    flex-wrap: wrap; /* search + admin stack if needed */
-    gap: 8px;
-  }
-}
-
-/* ===============================
-   HAMBURGER (MOBILE ONLY)
-================================ */
-.hamburger {
-  font-size: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: none;
-}
-
-/* Show hamburger only on mobile */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-}
-
-/* ===============================
-   BACK BUTTON
-================================ */
-.back-btn {
-  font-size: 20px;
-  padding: 6px 10px;
-  cursor: pointer;
-  border: none;
-  background: #f3f4f6;
-  border-radius: 6px;
-  transition: background 0.2s ease;
-}
-
-.back-btn:hover {
-  background: #e5e7eb;
-}
-
-/* ===============================
-   SEARCH INPUT
-================================ */
-.search {
-  flex: 1 1 auto;       /* allow shrinking on mobile */
-  max-width: 350px;
-  min-width: 0;         /* prevent overflow in flex container */
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  outline: none;
-  font-size: 14px;
-}
-
-.search:focus {
-  border-color: #2563eb;
-}
-
-/* ===============================
-   RIGHT SIDE
-================================ */
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-left: auto; /* push right content */
-  flex-shrink: 0;    /* prevent shrinking on mobile */
-}
-
-/* ===============================
-   ADMIN AREA
-================================ */
-.admin {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.admin img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-.logout-btn {
-  margin-left: 10px;
-  padding: 6px 12px;
-  font-size: 13px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  background: #ef4444;
-  color: #ffffff;
-  transition: background 0.2s ease;
-}
-
-.logout-btn:hover {
-  background: #dc2626;
-}
-
-/* ===============================
-   MODAL OVERLAY
-================================ */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
-
-/* ===============================
-   MODAL
-================================ */
-.modal {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-  width: 320px;
-  text-align: center;
-}
-
-.modal h3 {
-  margin-bottom: 10px;
-}
-
-.modal p {
-  font-size: 14px;
-  color: #4b5563;
-}
-
-/* ===============================
-   MODAL ACTIONS
-================================ */
-.modal-actions {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.btn {
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  border: none;
-  font-size: 14px;
-}
-
-.btn.cancel {
-  background: #e5e7eb;
-}
-
-.btn.confirm {
-  background: #ef4444;
-  color: #ffffff;
-}
-
-.btn.confirm:hover {
-  background: #dc2626;
-}
-
-
