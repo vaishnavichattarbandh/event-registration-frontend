@@ -1,35 +1,42 @@
 /* ==========================================================================
-   GLOBAL APP LAYOUT CENTER FIX
+   APP LAYOUT
    ========================================================================== */
 
-/* 1. Target the main wrapper container around your Sidebar and Pages */
-#root > div, .app-container, .main-layout {
-  display: grid;
-  grid-template-columns: 260px 1fr; /* 260px for sidebar, 1fr for the page content */
+.app-layout {
+  display: flex;
   min-height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  background-color: #f3f4f6; /* Smooth slate background for the entire page workspace */
+  background: #f3f4f6;
 }
 
-/* 2. Target the main content area panel sitting on the right side */
-main, .content-area, .main-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;       /* Centers your Hero Card and Grid cards horizontally */
-  justify-content: flex-start;
-  width: 100%;
+/* ==========================================================================
+   MAIN CONTENT
+   ========================================================================== */
+
+.main-content {
+  margin-left: 240px;      /* Same as sidebar width */
+  width: calc(100% - 240px);
+  min-height: 100vh;
   padding: 20px;
   box-sizing: border-box;
+  background: #f8fafc;
 }
 
-/* 3. Ensure your Sidebar container doesn't break the grid framework layout */
-aside, .sidebar {
-  width: 260px;
-  height: 100vh;
-  position: sticky;          /* Keeps it on the screen smoothly while scrolling */
-  top: 0;
-  left: 0;
-  z-index: 100;
+.main-content nav {
+  width: 100%;
 }
 
+.main-content > * {
+  width: 100%;
+}
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+}

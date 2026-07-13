@@ -7,12 +7,12 @@
   background: #111827;
   color: white;
   padding: 20px;
+  box-sizing: border-box;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1002; /* above overlay */
+  z-index: 1002;
   transition: transform 0.3s ease;
-  transform: translateX(0); /* visible by default on desktop */
 }
 
 .sidebar.open {
@@ -46,8 +46,25 @@
   color: white;
 }
 
-/* ================= MOBILE ================= */
+/* ===============================
+   MAIN CONTENT
+================================ */
+
+.main-content {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #f3f4f6;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
 @media (max-width: 768px) {
+
   .sidebar {
     transform: translateX(-100%);
   }
@@ -56,97 +73,33 @@
     transform: translateX(0);
   }
 
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
   .hamburger {
     display: block;
     position: fixed;
-    top: 1rem;
-    left: 1rem;
+    top: 15px;
+    left: 15px;
     z-index: 1100;
-    font-size: 2rem;
+    font-size: 24px;
     background: none;
     border: none;
     color: white;
     cursor: pointer;
-  }
-
-  .main-content {
-    margin-left: 0;
   }
 }
 
 /* ===============================
    OVERLAY
 ================================ */
+
 .overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 1001; /* below sidebar but above content */
-}
-
-/* ===============================
-   MAIN CONTENT
-================================ */
-.main-content {
-  padding: 20px;
-  margin-left: 240px; /* leave space for desktop sidebar */
-}
-
-/* ===============================
-   NAVBAR
-================================ */
-.navbar {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 20px;
-  background: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  font-family: "Agency FB", Arial, sans-serif;
-  margin-left: 0;
-  width: 100%;
-}
-
-@media (min-width: 769px) {
-  .navbar {
-    width: calc(100% - 240px);
-  }
-}
-
-/* ===============================
-   SEARCH INPUT
-================================ */
-.search {
-  flex: 1;
-  max-width: 350px;
-  padding: 8px 12px;
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
-  outline: none;
-  font-size: 14px;
-  min-width: 0;
-}
-
-.search:focus {
-  border-color: #2563eb;
-}
-
-/* ===============================
-   HAMBURGER (MOBILE ONLY)
-================================ */
-.hamburger {
-  font-size: 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
+  background: rgba(0,0,0,0.45);
+  z-index: 1001;
 }
