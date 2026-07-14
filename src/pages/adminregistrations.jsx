@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/adminregistrations.css";
 
-const BASE_URL = "https://event-registration-backend-7d42.onrender.com";
+// ✅ Replace with your actual Render backend URL
+const BASE_URL = "https://event-registration-backend-1.onrender.com";
 
 const AdminRegistrations = () => {
   const [data, setData] = useState([]);
@@ -16,13 +17,17 @@ const AdminRegistrations = () => {
   const fetchRegistrations = async () => {
     try {
       const res = await axios.get(`${BASE_URL}/api/registrations`, {
-        params: { page, limit, search }
+        params: {
+          page,
+          limit,
+          search,
+        },
       });
 
       setData(res.data.data || []);
       setTotalPages(res.data.totalPages || 1);
     } catch (err) {
-      console.error(err);
+      console.error("Fetch Error:", err);
       setData([]);
       setTotalPages(1);
     }
@@ -38,11 +43,11 @@ const AdminRegistrations = () => {
       setDeleteId(null);
       fetchRegistrations();
     } catch (err) {
+      console.error(err);
       alert("Delete failed");
     }
   };
 
-  // ✅ CORRECT EXPORT
   const handleExport = () => {
     window.open(
       `${BASE_URL}/api/registrations/export/excel`,
@@ -56,9 +61,10 @@ const AdminRegistrations = () => {
 
       <div className="top-bar">
         <input
+          type="text"
           placeholder="Search..."
           value={search}
-          onChange={e => {
+          onChange={(e) => {
             setSearch(e.target.value);
             setPage(1);
           }}
@@ -74,8 +80,8 @@ const AdminRegistrations = () => {
           <tr>
             <th>Event</th>
             <th>Name</th>
-            <th>Roll</th>
-            <th>Dept</th>
+            <th>Roll No</th>
+            <th>Department</th>
             <th>Email</th>
             <th>Action</th>
           </tr>
@@ -84,10 +90,12 @@ const AdminRegistrations = () => {
         <tbody>
           {data.length === 0 ? (
             <tr>
-              <td colSpan="6" align="center">No data</td>
+              <td colSpan="6" align="center">
+                No registrations found
+              </td>
             </tr>
           ) : (
-            data.map(r => (
+            data.map((r) => (
               <tr key={r._id}>
                 <td>{r.eventName}</td>
                 <td>{r.fullName}</td>
@@ -106,7 +114,10 @@ const AdminRegistrations = () => {
       </table>
 
       <div className="pagination">
-        <button disabled={page === 1} onClick={() => setPage(p => p - 1)}>
+        <button
+          disabled={page === 1}
+          onClick={() => setPage((p) => p - 1)}
+        >
           ◀ Prev
         </button>
 
@@ -114,7 +125,10 @@ const AdminRegistrations = () => {
           Page {page} of {totalPages}
         </span>
 
-        <button disabled={page === totalPages} onClick={() => setPage(p => p + 1)}>
+        <button
+          disabled={page === totalPages}
+          onClick={() => setPage((p) => p + 1)}
+        >
           Next ▶
         </button>
       </div>
@@ -123,8 +137,12 @@ const AdminRegistrations = () => {
         <div className="modal">
           <div className="modal-box">
             <h3>Confirm Delete</h3>
+
             <button onClick={confirmDelete}>Delete</button>
-            <button onClick={() => setDeleteId(null)}>Cancel</button>
+
+            <button onClick={() => setDeleteId(null)}>
+              Cancel
+            </button>
           </div>
         </div>
       )}
