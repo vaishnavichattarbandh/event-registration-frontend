@@ -33,14 +33,46 @@ const Events = () => {
       id: 5,
       title: "NextGen Entreprenuers",
       date: "21 April 2026",
-      organizer: "E-Cell Department"
+      organizer: "Entrepreneurship Development Cell"
     },
     {
       id: 6,
       title: "Beat Bash",
       date: "28 April 2026",
       organizer: "Cultural Department",
-    }
+    },
+    {
+      id: 7,
+      title: "Technical Symposium",
+      date: "29 April 2026",
+      organizer: "Computer Science Department",
+    },
+    {
+      id: 8,
+      title: "Cyber Security Seminar",
+      date: "2 May 2026",
+      organizer: "Information Security Department",
+    },
+    {
+      id: 9,
+      title: "Entrepreneurship Summit",
+      date: "4 May 2026",
+      organizer: "Entrepreneurship Development Cell",
+    },
+    {
+      id: 10,
+      title: "Talent Hunt",
+      date: "10 May 2026",
+      organizer: "Student Affairs Department",
+    },
+    {
+      id: 11,
+      title: "Fashion Fiesta",
+      date: "21 May 2026",
+      organizer: "Cultural Department",
+    },
+
+
     
   ];
 
