@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/adminregistrations.css";
 
-// ✅ Use the backend that contains the export API
+// ✅ Your Render backend URL
 const BASE_URL = "https://event-registration-backend-7d42.onrender.com";
 
 const AdminRegistrations = () => {
@@ -14,6 +14,7 @@ const AdminRegistrations = () => {
 
   const limit = 5;
 
+  // Fetch registrations
   const fetchRegistrations = async () => {
     try {
       const res = await axios.get(`${BASE_URL}/api/registrations`, {
@@ -37,6 +38,7 @@ const AdminRegistrations = () => {
     fetchRegistrations();
   }, [page, search]);
 
+  // Delete registration
   const confirmDelete = async () => {
     try {
       await axios.delete(`${BASE_URL}/api/registrations/${deleteId}`);
@@ -48,16 +50,35 @@ const AdminRegistrations = () => {
     }
   };
 
-  // ✅ Export Excel
-  const handleExport = () => {
-    console.log("Export clicked");
+  // Export Excel
+  const handleExport = async () => {
+    try {
+      const response = await axios.get(
+        `${BASE_URL}/api/registrations/export/excel`,
+        {
+          responseType: "blob",
+        }
+      );
 
-    const exportUrl = `${BASE_URL}/api/registrations/export/excel`;
+      const file = new Blob([response.data], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
 
-    console.log(exportUrl);
+      const fileURL = window.URL.createObjectURL(file);
 
-    // Opens the download in a new tab
-    window.open(exportUrl, "_blank");
+      const link = document.createElement("a");
+      link.href = fileURL;
+      link.download = "registrations.xlsx";
+
+      document.body.appendChild(link);
+      link.click();
+
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(fileURL);
+    } catch (err) {
+      console.error("Export Error:", err);
+      alert("Failed to export Excel.");
+    }
   };
 
   return (
