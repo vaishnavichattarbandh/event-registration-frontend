@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/adminregistrations.css";
 
-// ✅ Replace with your actual Render backend URL
-const BASE_URL = "https://event-registration-backend-1.onrender.com";
+// ✅ Use the backend that contains the export API
+const BASE_URL = "https://event-registration-backend-7d42.onrender.com";
 
 const AdminRegistrations = () => {
   const [data, setData] = useState([]);
@@ -43,16 +43,21 @@ const AdminRegistrations = () => {
       setDeleteId(null);
       fetchRegistrations();
     } catch (err) {
-      console.error(err);
+      console.error("Delete Error:", err);
       alert("Delete failed");
     }
   };
 
+  // ✅ Export Excel
   const handleExport = () => {
-    window.open(
-      `${BASE_URL}/api/registrations/export/excel`,
-      "_blank"
-    );
+    console.log("Export clicked");
+
+    const exportUrl = `${BASE_URL}/api/registrations/export/excel`;
+
+    console.log(exportUrl);
+
+    // Opens the download in a new tab
+    window.open(exportUrl, "_blank");
   };
 
   return (
