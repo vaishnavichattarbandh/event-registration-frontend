@@ -31,7 +31,7 @@ const Admin = () => {
   // ✅ Export Excel
   const exportExcel = () => {
     window.location.href =
-      "https://event-registration-backend-7d42.onrender.com/api/registrations/export/excel";
+      "https://event-registration-backend-1.onrender.com/api/registrations/export/excel";
   };
 
   return (

@@ -9,7 +9,7 @@ const EventRegistrations = () => {
   useEffect(() => {
     axios
       .get(
-        "https://event-registration-backend-7d42.onrender.com/api/registrations",
+        "https://event-registration-backend-1.onrender.com/api/registrations",
         {
           params: {
             page: 1,
