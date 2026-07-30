@@ -3,7 +3,7 @@ import axios from "axios";
 import "../styles/adminregistrations.css";
 
 // ✅ Your Render backend URL
-const BASE_URL = "https://event-registration-backend-7d42.onrender.com";
+const BASE_URL = "https://event-registration-backend-1.onrender.com";
 
 const AdminRegistrations = () => {
   const [data, setData] = useState([]);
