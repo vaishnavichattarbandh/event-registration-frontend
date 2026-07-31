@@ -5,7 +5,7 @@ import axios from "axios";
  * Backend base URL
  */
 const API = axios.create({
-  baseURL: "https://event-registration-backend-7d42.onrender.com/api",
+  baseURL: "https://event-registration-backend-1.onrender.com/api",
 });
 
 /* =========================

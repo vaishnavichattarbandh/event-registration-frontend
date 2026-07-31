@@ -3,51 +3,46 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/adminlogin.css";
 
+const BASE_URL = "https://event-registration-backend-1.onrender.com";
+
 const AdminLogin = () => {
   const [credentials, setCredentials] = useState({
     username: "",
-    password: ""
+    password: "",
   });
 
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  // handle input
   const handleChange = (e) => {
     setCredentials({
       ...credentials,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  // handle login
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
       const response = await axios.post(
-        "https://event-registration-backend-1.onrender.com/api/admin/login",
+        `${BASE_URL}/api/admin/login`,
         credentials
       );
 
-      // ✅ LOGIN SUCCESS
       if (response.data.success) {
-        const { token, expiresIn } = response.data;
+        // Save JWT token
+        localStorage.setItem("adminToken", response.data.token);
 
-        // 🔐 store token
-        localStorage.setItem("adminToken", token);
+        // Save username (optional)
+        localStorage.setItem("adminUsername", response.data.username);
 
-        // ⏳ store expiry time
-        localStorage.setItem(
-          "adminTokenExpiry",
-          Date.now() + expiresIn * 1000
-        );
-
-        // 👉 redirect
+        // Redirect
         navigate("/admin/dashboard");
       }
     } catch (err) {
+      console.error(err.response?.data || err);
       setError("Invalid username or password");
     }
   };

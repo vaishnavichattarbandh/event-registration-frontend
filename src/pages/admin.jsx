@@ -9,7 +9,7 @@ const Admin = () => {
   // ✅ Fetch registrations
   useEffect(() => {
     axios
-      .get("https://event-registration-backend-7d42.onrender.com/api/registrations")
+      .get("https://event-registration-backend-1.onrender.com/api/registrations")
       .then((res) => {
         // backend sends { data, totalPages, currentPage }
         setData(res.data.data || []);
