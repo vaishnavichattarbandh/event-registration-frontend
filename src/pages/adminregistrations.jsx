@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/adminregistrations.css";
 
-// ✅ Your Render backend URL
+// Backend URL
 const BASE_URL = "https://event-registration-backend-1.onrender.com";
 
 const AdminRegistrations = () => {
@@ -14,6 +14,16 @@ const AdminRegistrations = () => {
 
   const limit = 5;
 
+  // Get JWT Token
+  const token = localStorage.getItem("adminToken");
+
+  // Common headers
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
   // Fetch registrations
   const fetchRegistrations = async () => {
     try {
@@ -23,12 +33,22 @@ const AdminRegistrations = () => {
           limit,
           search,
         },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       });
 
       setData(res.data.data || []);
       setTotalPages(res.data.totalPages || 1);
     } catch (err) {
       console.error("Fetch Error:", err);
+
+      if (err.response?.status === 401) {
+        alert("Session expired. Please login again.");
+        localStorage.removeItem("adminToken");
+        window.location.href = "/admin/login";
+      }
+
       setData([]);
       setTotalPages(1);
     }
@@ -38,15 +58,26 @@ const AdminRegistrations = () => {
     fetchRegistrations();
   }, [page, search]);
 
-  // Delete registration
+  // Delete Registration
   const confirmDelete = async () => {
     try {
-      await axios.delete(`${BASE_URL}/api/registrations/${deleteId}`);
+      await axios.delete(
+        `${BASE_URL}/api/registrations/${deleteId}`,
+        config
+      );
+
       setDeleteId(null);
       fetchRegistrations();
     } catch (err) {
       console.error("Delete Error:", err);
-      alert("Delete failed");
+
+      if (err.response?.status === 401) {
+        alert("Session expired. Please login again.");
+        localStorage.removeItem("adminToken");
+        window.location.href = "/admin/login";
+      } else {
+        alert("Delete failed");
+      }
     }
   };
 
@@ -57,6 +88,9 @@ const AdminRegistrations = () => {
         `${BASE_URL}/api/registrations/export/excel`,
         {
           responseType: "blob",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
 
@@ -77,7 +111,14 @@ const AdminRegistrations = () => {
       window.URL.revokeObjectURL(fileURL);
     } catch (err) {
       console.error("Export Error:", err);
-      alert("Failed to export Excel.");
+
+      if (err.response?.status === 401) {
+        alert("Session expired. Please login again.");
+        localStorage.removeItem("adminToken");
+        window.location.href = "/admin/login";
+      } else {
+        alert("Failed to export Excel.");
+      }
     }
   };
 
