@@ -1,0 +1,167 @@
+/* ==========================
+   SIGNUP PAGE CONTAINER
+========================== */
+
+.signup-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ==========================
+   CARD STYLING
+========================== */
+
+.signup-card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px 28px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  color: #f8fafc;
+}
+
+/* ==========================
+   HEADER SECTION
+========================== */
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.logo-badge {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin: 0 auto 12px auto;
+  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.3);
+}
+
+.signup-header h2 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+}
+
+.signup-header p {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ==========================
+   FORM & INPUTS
+========================== */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.form-field input::placeholder {
+  color: #64748b;
+}
+
+.form-field input:focus {
+  border-color: #3b82f6;
+  background: rgba(15, 23, 42, 0.9);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* ==========================
+   SUBMIT BUTTON
+========================== */
+
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 8px;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.signup-btn:hover {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.signup-btn:active {
+  transform: translateY(0);
+}
+
+/* ==========================
+   FOOTER LINKS
+========================== */
+
+.signup-footer {
+  margin-top: 20px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 16px;
+}
+
+.signup-footer p {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.signup-footer a {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.signup-footer a:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}

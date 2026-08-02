@@ -1,180 +1,362 @@
-.dashboard {
-  padding: 20px;
-  max-width: 1200px;         /* Keeps content from stretching too wide */
-  margin: 0 auto;            /* Centers the entire dashboard block on the screen */
-  width: 100%;               /* Ensures it uses available width */
-  box-sizing: border-box;
+/* ===== Google Font ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* ========================= WELCOME / HERO CARD ========================= */
-.welcome-card {
-  background: #111827;
-  border-radius: 14px;
-  padding: 30px;
-  margin: 0 auto 30px auto;  /* Centers the card and pushes it down */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  color: white;
-  max-width: 1000px;         /* Limits width for an optimal reading layout */
+body{
+    font-family:'Inter',sans-serif;
+    background:#f5f7fb;
+    color:#1f2937;
 }
 
-.welcome-card h1 {
-  margin-bottom: 10px;
-  font-size: 26px;
-  color: white;
+.dashboard{
+    max-width:1300px;
+    margin:auto;
+    padding:30px;
 }
 
-.welcome-card p {
-  color: #d1d5db;
-  margin-bottom: 20px;
+/* ================= HERO ================= */
+
+.hero{
+    background:linear-gradient(135deg,#1e3a8a,#2563eb,#4f46e5);
+    color:white;
+    border-radius:24px;
+    padding:60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+    box-shadow:0 15px 40px rgba(0,0,0,.18);
 }
 
-.welcome-links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
+.hero-content{
+    flex:1;
+    min-width:320px;
 }
 
-.welcome-links a {
-  color: #a5b4fc;
-  font-weight: 500;
-  text-decoration: none;
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.18);
+    padding:8px 16px;
+    border-radius:30px;
+    margin-bottom:20px;
+    font-size:14px;
 }
 
-/* ========================= HERO (OLD SECTION) ========================= */
-.hero {
-  text-align: center;
-  padding: 40px 20px;
+.hero h1{
+    font-size:48px;
+    margin-bottom:20px;
+    line-height:1.2;
 }
 
-.hero-buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
+.hero p{
+    color:#e2e8f0;
+    font-size:17px;
+    line-height:1.8;
+    max-width:600px;
 }
 
-/* ========================= SECTIONS ========================= */
-.section {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;       /* Centers section text headers and contents */
-  width: 100%;
+/* Buttons */
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
-.section h2 {
-  margin-bottom: 20px;
-  text-align: center;        /* Centers your subheadings nicely */
+.btn{
+    text-decoration:none;
+    padding:14px 26px;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
 }
 
-/* ========================= EVENT GRID ========================= */
-.event-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  width: 100%;
-  justify-content: center;   /* Centers the entire grid layout row block */
-  justify-items: center;     /* Centers cards inside their grid blocks */
-  max-width: 1000px;         /* Balances nicely with your hero card width */
-  margin: 0 auto;
+.primary{
+    background:white;
+    color:#2563eb;
 }
 
-/* EVENT CARD */
-.event-card {
-  background: white;
-  padding: 16px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;               /* Ensures individual cards take full grid column cell space */
-  max-width: 320px;          /* Prevents grid columns from looking bloated */
-  box-sizing: border-box;
+.primary:hover{
+    transform:translateY(-3px);
 }
 
-/* IMAGE */
-.event-image {
-  height: 120px;
-  background: #eef2ff;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
+.secondary{
+    background:rgba(255,255,255,.15);
+    color:white;
+    border:1px solid rgba(255,255,255,.3);
 }
 
-/* DESCRIPTION */
-.event-desc {
-  font-size: 0.9rem;
-  color: #555;
+.secondary:hover{
+    background:rgba(255,255,255,.25);
 }
 
-/* ========================= CATEGORIES ========================= */
-.categories {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;   /* Centers your category pill items row */
-  width: 100%;
+/* Stats */
+
+.hero-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
-.categories span {
-  background: #e5e7eb;
-  padding: 8px 14px;
-  border-radius: 20px;
+.stat-card{
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+    padding:25px;
+    border-radius:18px;
+    text-align:center;
+    min-width:140px;
 }
 
-/* ========================= UPCOMING ========================= */
-.upcoming {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-  max-width: 600px;          /* Centers and neatly contains lists like events */
-  margin: 0 auto;
+.stat-card h2{
+    margin:10px 0;
+    font-size:32px;
 }
 
-.upcoming div {
-  text-align: left;          /* Keeps individual list details neat and left-aligned */
-  background: #f9fafb;
-  padding: 12px 16px;
-  border-radius: 8px;
-  border-left: 4px solid #111827;
+/* ================= Search ================= */
+
+.search-box{
+    margin:40px 0;
+    display:flex;
+    align-items:center;
+    background:white;
+    border-radius:14px;
+    padding:15px 20px;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
 }
 
-/* ========================= CTA ========================= */
-.cta {
-  margin: 60px auto 20px auto; /* Centers the call-to-action block container layout */
-  padding: 40px 20px;
-  text-align: center;
-  background: #111827;
-  color: white;
-  border-radius: 12px;
-  max-width: 1000px;
-  width: 100%;
+.search-box input{
+    border:none;
+    outline:none;
+    width:100%;
+    margin-left:10px;
+    font-size:16px;
 }
 
-/* ========================= RESPONSIVE BREAKPOINTS ========================= */
-/* TABLET */
-@media (max-width: 1024px) {
-  .event-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* ================= Announcement ================= */
+
+.announcement{
+    background:#fef3c7;
+    color:#92400e;
+    border-left:5px solid orange;
+    padding:18px 22px;
+    border-radius:12px;
+    margin-bottom:45px;
 }
 
-/* MOBILE */
-@media (max-width: 640px) {
-  .event-grid {
-    grid-template-columns: 1fr;
-  }
-  .event-card {
-    padding: 12px;
-    max-width: 100%;
-  }
-  .event-image {
-    height: 90px;
-  }
+/* ================= Sections ================= */
+
+.section{
+    margin:70px 0;
+}
+
+.section h2{
+    margin-bottom:25px;
+    font-size:30px;
+}
+
+/* ================= Categories ================= */
+
+.categories{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+}
+
+.categories div{
+    background:white;
+    padding:14px 24px;
+    border-radius:40px;
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+    cursor:pointer;
+    transition:.3s;
+}
+
+.categories div:hover{
+    background:#2563eb;
+    color:white;
+}
+
+/* ================= Events ================= */
+
+.event-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.event-card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    transition:.35s;
+}
+
+.event-card:hover{
+    transform:translateY(-8px);
+}
+
+.event-banner{
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+    color:white;
+    padding:18px;
+    font-weight:600;
+}
+
+.event-card h3{
+    margin:20px;
+}
+
+.event-card p{
+    margin:10px 20px;
+    color:#6b7280;
+}
+
+.small{
+    display:inline-block;
+    margin:20px;
+    background:#2563eb;
+    color:white;
+}
+
+/* ================= Timeline ================= */
+
+.timeline{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.timeline-item{
+    background:white;
+    border-left:5px solid #2563eb;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+}
+
+/* ================= Benefits ================= */
+
+.benefits{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.benefit-card{
+    background:white;
+    padding:35px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.07);
+    transition:.3s;
+}
+
+.benefit-card:hover{
+    transform:translateY(-8px);
+}
+
+.benefit-card h3{
+    margin:20px 0;
+}
+
+/* ================= CTA ================= */
+
+.cta{
+    margin-top:80px;
+    background:linear-gradient(135deg,#1d4ed8,#4f46e5);
+    color:white;
+    padding:60px;
+    border-radius:24px;
+    text-align:center;
+}
+
+.cta h2{
+    font-size:38px;
+}
+
+.cta p{
+    margin:20px 0 30px;
+    color:#e2e8f0;
+}
+
+/* ================= Footer ================= */
+
+.footer{
+    margin-top:60px;
+    border-top:1px solid #d1d5db;
+    padding:30px 0;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    color:#6b7280;
+}
+
+.footer div{
+    display:flex;
+    gap:25px;
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:900px){
+
+.hero{
+    padding:40px;
+}
+
+.hero h1{
+    font-size:36px;
+}
+
+.hero-stats{
+    grid-template-columns:1fr;
+    width:100%;
+}
+
+}
+
+@media(max-width:600px){
+
+.dashboard{
+    padding:20px;
+}
+
+.hero{
+    padding:30px;
+}
+
+.hero h1{
+    font-size:30px;
+}
+
+.hero-buttons{
+    flex-direction:column;
+}
+
+.btn{
+    width:100%;
+    text-align:center;
+}
+
+.cta{
+    padding:40px 25px;
+}
+
+.cta h2{
+    font-size:28px;
+}
+
+.footer{
+    flex-direction:column;
+    gap:20px;
+}
+
 }

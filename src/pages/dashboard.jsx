@@ -1,90 +1,76 @@
 import { Link } from "react-router-dom";
-import "../styles/dashboard.css";
+import "../styles/userdashboard.css";
 
 const Dashboard = () => {
+  const userName = localStorage.getItem("userName") || "User";
+
+  // Mock registrations list (can be updated dynamically later)
+  const myRegistrations = [
+    {
+      id: 1,
+      title: "Singing Contest",
+      date: "2026-08-11",
+      location: "Hyderabad, India",
+      ticketCode: "AURORA-SNG-8812",
+      status: "Confirmed",
+    },
+  ];
+
   return (
-    <div className="dashboard">
-
-      {/* ✅ WELCOME CARD (REPLACED HERO) */}
-      <section className="welcome-card">
-        <h1>🎉 Welcome to Aurora’s Event Hub</h1>
-        <p>
-          Discover workshops, hackathons, tech talks and cultural events
-        </p>
-
-        <div className="welcome-links">
-          <Link to="/events">Explore Events</Link>
-          <Link to="/admin/login">Admin Login</Link>
-        </div>
-      </section>
-
-      {/* FEATURED EVENTS */}
-      <section className="section">
-        <h2>🔥 Featured Events</h2>
-
-        <div className="event-grid">
-          {["Hackathon 2026", "Tech Talk", "UI/UX Workshop"].map((event, i) => (
-            <div className="event-card" key={i}>
-              <div className="event-image">
-                <span>🎯</span>
-              </div>
-
-              <h3>{event}</h3>
-              <p>📅 Jan {20 + i}, 2026</p>
-              <p className="event-desc">
-                Join us for an exciting experience and hands-on learning.
-              </p>
-
-              <Link to={`/events`} className="btn small">
-                View Details
-              </Link>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CATEGORIES */}
-      <section className="section">
-        <h2>🎯 Browse by Category</h2>
-
-        <div className="categories">
-          <span>💻 Tech</span>
-          <span>🎨 Cultural</span>
-          <span>🎓 Workshop</span>
-          <span>🏆 Competition</span>
-        </div>
-      </section>
-
-      {/* UPCOMING EVENTS */}
-      <section className="section">
-        <h2>📆 Upcoming Events</h2>
-
-        <div className="upcoming">
-          <div>
-            <strong>Hackathon 2026</strong>
-            <p>📍18 April, 2026 Auditorium • 🕘 10 AM</p>
-          </div>
-
-          <div>
-            <strong>AI Tech Talk</strong>
-            <p>📍19 April, 2026 Seminar Hall • 🕓 4 PM</p>
-          </div>
-
-          <div>
-            <strong>Design Workshop</strong>
-            <p>📍2 April, 2026 Lab 2 • 🕑 2 PM</p>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="cta">
-        <h2>Ready to be part of something amazing?</h2>
-        <Link to="/events" className="btn primary">
-          Browse All Events 🚀
+    <div className="dashboard-container">
+      {/* Welcome Banner */}
+      <div className="welcome-banner">
+        <h2>Welcome back, {userName}! 👋</h2>
+        <p>Manage your event passes and discover new upcoming events on campus.</p>
+        <Link to="/events" className="explore-btn">
+          Explore Events →
         </Link>
-      </section>
+      </div>
 
+      {/* Quick Metrics */}
+      <div className="metrics-row">
+        <div className="metric-card">
+          <span className="metric-icon">🎟️</span>
+          <div>
+            <h3>{myRegistrations.length}</h3>
+            <p>Registered Events</p>
+          </div>
+        </div>
+        <div className="metric-card">
+          <span className="metric-icon">🌟</span>
+          <div>
+            <h3>Active</h3>
+            <p>Attendee Account</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Registered Tickets List */}
+      <div className="dashboard-section">
+        <h3>Your Event Tickets</h3>
+        {myRegistrations.length > 0 ? (
+          <div className="tickets-grid">
+            {myRegistrations.map((item) => (
+              <div key={item.id} className="ticket-card">
+                <div className="ticket-header">
+                  <h4>{item.title}</h4>
+                  <span className="status-badge">{item.status}</span>
+                </div>
+                <div className="ticket-details">
+                  <p>📅 <strong>Date:</strong> {item.date}</p>
+                  <p>📍 <strong>Location:</strong> {item.location}</p>
+                  <p>🔑 <strong>Pass ID:</strong> <code>{item.ticketCode}</code></p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="empty-box">
+            <p>You haven't registered for any events yet.</p>
+            <Link to="/events" className="browse-link">Browse events now</Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

@@ -1,0 +1,221 @@
+/* Container & Layout Structure */
+.qr-checkin-container {
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #0f172a; /* Dark text for light background */
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.qr-checkin-container h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #0f172a;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qr-checkin-container p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 28px;
+}
+
+/* Two-Column Dashboard Grid */
+.checkin-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Sleek Dark Card Panels */
+.scanner-box,
+.status-box {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+  color: #f8fafc;
+}
+
+.scanner-box h3,
+.status-box h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #f8fafc;
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+
+/* Override html5-qrcode Internal Styles */
+#qr-reader {
+  border: 2px dashed rgba(255, 255, 255, 0.15) !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  background: #020617 !important;
+  padding: 16px !important;
+  color: #94a3b8 !important;
+}
+
+#qr-reader a {
+  color: #38bdf8 !important;
+  text-decoration: none;
+}
+
+#qr-reader button {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  margin-top: 10px !important;
+  transition: all 0.2s ease !important;
+}
+
+#qr-reader button:hover {
+  background: #1d4ed8 !important;
+}
+
+/* Manual Input Form */
+.manual-form {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.manual-form input {
+  flex: 1;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #020617;
+  color: #ffffff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.manual-form input::placeholder {
+  color: #64748b;
+}
+
+.manual-form input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.manual-form button {
+  padding: 12px 22px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.manual-form button:hover {
+  background: #1d4ed8;
+}
+
+/* Verification Result Badges */
+.result-card {
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+}
+
+.result-card.success {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.result-card.success h4 {
+  color: #34d399;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.result-card.success p {
+  color: #a7f3d0;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+.result-card code {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-family: monospace;
+  color: #6ee7b7;
+}
+
+.result-card.idle {
+  background: #020617;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.result-card.idle p {
+  color: #64748b;
+  margin: 0;
+}
+
+/* Recent Check-ins List */
+.recent-scans h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.recent-scans ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recent-scans li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #020617;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  font-size: 0.88rem;
+}
+
+.recent-scans li code {
+  color: #f3f4f6;
+  font-family: monospace;
+}
+
+.scan-time {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .checkin-grid {
+    grid-template-columns: 1fr;
+  }
+}

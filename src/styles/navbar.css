@@ -1,115 +1,310 @@
-/* =============================== NAVBAR ================================ */ 
-.navbar { 
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; /* Ensures search bar stays left and profile stays right */
-  gap: 12px; 
-  padding: 12px 20px; 
-  background: #ffffff; 
-  border-bottom: 1px solid #e5e7eb; 
-  position: sticky; 
-  top: 0; 
-  z-index: 1000; 
-  font-family: "Agency FB", Arial, sans-serif; 
-  margin-left: 0;                 /* ✅ FIXED: Removed the 240px double margin offset */
-  width: 100%;                    /* ✅ FIXED: Spans cleanly across the available right-panel top space */
-  box-sizing: border-box;
-  flex-wrap: nowrap; 
-} 
+/* ==========================
+   NAVBAR
+========================== */
 
-/* Mobile: full width, allow wrapping */ 
-@media (max-width: 768px) { 
-  .navbar { 
-    margin-left: 0; 
-    width: 100%; 
-    padding-left: 12px; 
-    padding-right: 12px; 
-    flex-wrap: wrap; /* search + admin stack if needed */ 
-    gap: 8px; 
-  } 
-} 
+.navbar {
+  height: 72px;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 28px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 900;
+}
 
-/* =============================== HAMBURGER (MOBILE ONLY) ================================ */ 
-.hamburger { 
-  font-size: 22px; 
-  background: none; 
-  border: none; 
-  cursor: pointer; 
-  display: none; 
-} 
+/* ==========================
+   LEFT
+========================== */
 
-/* Show hamburger only on mobile */ 
-@media (max-width: 768px) { 
-  .hamburger { 
-    display: block; 
-  } 
-} 
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
 
-/* =============================== BACK BUTTON ================================ */ 
-.back-btn { 
-  font-size: 20px; 
-  padding: 6px 10px; 
-  cursor: pointer; 
-  border: none; 
-  background: #f3f4f6; 
-  border-radius: 6px; 
-  transition: background 0.2s ease; 
-} 
+.hamburger,
+.back-btn {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 10px;
+  background: #f1f5f9;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
 
-.back-btn:hover { 
-  background: #e5e7eb; 
-} 
+.hamburger:hover,
+.back-btn:hover {
+  background: #2563eb;
+  color: white;
+}
 
-/* =============================== SEARCH INPUT ================================ */ 
-.search { 
-  flex: 1 1 auto; /* allow shrinking on mobile */ 
-  max-width: 350px; 
-  min-width: 0; /* prevent overflow in flex container */ 
-  padding: 8px 12px; 
-  border-radius: 6px; 
-  border: 1px solid #d1d5db; 
-  outline: none; 
-  font-size: 14px; 
-} 
+.nav-title h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #0f172a;
+}
 
-.search:focus { 
-  border-color: #2563eb; 
-} 
+.nav-title span {
+  font-size: 13px;
+  color: #64748b;
+}
 
-/* =============================== RIGHT SIDE ================================ */ 
-.nav-right { 
-  display: flex; 
-  align-items: center; 
-  gap: 16px; 
-  margin-left: auto; /* push right content */ 
-  flex-shrink: 0; /* prevent shrinking on mobile */ 
-} 
+/* ==========================
+   SEARCH
+========================== */
 
-/* =============================== ADMIN AREA ================================ */ 
-.admin { 
-  display: flex; 
-  align-items: center; 
-  gap: 8px; 
-} 
+.search-box {
+  flex: 1;
+  max-width: 420px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin: 0 40px;
+}
 
-.admin img { 
-  width: 40px; 
-  height: 40px; 
-  border-radius: 50%; 
-} 
+.search-box span {
+  font-size: 18px;
+}
 
-.logout-btn { 
-  margin-left: 10px; 
-  padding: 6px 12px; 
-  font-size: 13px; 
-  border: none; 
-  border-radius: 6px; 
-  cursor: pointer; 
-  background: #ef4444; 
-  color: #ffffff; 
-  transition: background 0.2s ease; 
-} 
+.search-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  font-size: 15px;
+}
 
-.logout-btn:hover { 
-  background: #dc2626; 
+/* ==========================
+   RIGHT
+========================== */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+/* ==========================
+   NOTIFICATION
+========================== */
+
+.notification {
+  position: relative;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: #ef4444;
+  color: white;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ==========================
+   ADMIN PROFILE
+========================== */
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-profile img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.admin-profile h4 {
+  margin: 0;
+  color: #0f172a;
+  font-size: 15px;
+}
+
+.admin-profile p {
+  margin: 2px 0 0;
+  color: #64748b;
+  font-size: 12px;
+}
+
+/* ==========================
+   LOGOUT
+========================== */
+
+.logout-btn {
+  border: none;
+  background: #dc2626;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.logout-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+}
+
+/* ==========================
+   MODAL
+========================== */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.logout-modal {
+  background: white;
+  width: 380px;
+  max-width: 90%;
+  padding: 35px;
+  border-radius: 18px;
+  text-align: center;
+  animation: popup .25s ease;
+}
+
+.logout-icon {
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  background: #fee2e2;
+  color: #dc2626;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.logout-modal h2 {
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.logout-modal p {
+  color: #64748b;
+  margin-bottom: 25px;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.cancel-btn,
+.confirm-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.cancel-btn {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.cancel-btn:hover {
+  background: #cbd5e1;
+}
+
+.confirm-btn {
+  background: #dc2626;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background: #b91c1c;
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+
+@keyframes popup {
+  from {
+    opacity: 0;
+    transform: scale(.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 992px) {
+
+  .search-box {
+    display: none;
+  }
+
+  .nav-title span {
+    display: none;
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .admin-profile div {
+    display: none;
+  }
+
+  .logout-btn {
+    display: none;
+  }
+
+  .nav-right {
+    gap: 14px;
+  }
+
+}
+
+@media (min-width: 769px) {
+
+  .hamburger {
+    display: none;
+  }
+
 }

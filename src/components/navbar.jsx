@@ -5,10 +5,17 @@ import "../styles/navbar.css";
 const Navbar = ({ toggleSidebar }) => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
-  // Hide back button on home page
   const hideBackBtn = location.pathname === "/";
+
+  const today = new Date().toLocaleDateString("en-US", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
 
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
@@ -19,83 +26,132 @@ const Navbar = ({ toggleSidebar }) => {
   return (
     <>
       <nav className="navbar">
-        {/* ☰ Hamburger (MOBILE ONLY) */}
-        <button
-          className="hamburger"
-          onClick={toggleSidebar}
-          aria-label="Open sidebar"
-        >
-          ☰
-        </button>
 
-        {/* 🔙 Back Button */}
-        {!hideBackBtn && (
+        {/* Left */}
+
+        <div className="nav-left">
+
           <button
-            className="back-btn"
-            onClick={() => navigate(-1)}
-            title="Go back"
+            className="hamburger"
+            onClick={toggleSidebar}
           >
-            ←
+            ☰
           </button>
-        )}
 
-        {/* 🔍 Search */}
-        <input
-          type="text"
-          placeholder="Search events..."
-          className="search"
-        />
+          {!hideBackBtn && (
+            <button
+              className="back-btn"
+              onClick={() => navigate(-1)}
+            >
+              ←
+            </button>
+          )}
 
-        {/* Right Section */}
+          <div className="nav-title">
+            <h2>Aurora Event Hub</h2>
+            <span>{today}</span>
+          </div>
+
+        </div>
+
+        {/* Center */}
+
+        <div className="search-box">
+
+          <span>🔍</span>
+
+          <input
+            type="text"
+            placeholder="Search events, students..."
+          />
+
+        </div>
+
+        {/* Right */}
+
         <div className="nav-right">
-          <span className="bell">🔔</span>
 
-          <div className="admin">
+          <div className="notification">
+
+            🔔
+
+            <span className="badge">
+              3
+            </span>
+
+          </div>
+
+          <div className="admin-profile">
+
             <img
-              src="https://i.pravatar.cc/40"
+              src="https://i.pravatar.cc/45"
               alt="Admin"
             />
-            <span>Admin</span>
 
-            <button
-              className="logout-btn"
-              onClick={() => setShowLogoutModal(true)}
-            >
-              Logout
-            </button>
+            <div>
+
+              <h4>Administrator</h4>
+
+              <p>Event Coordinator</p>
+
+            </div>
+
           </div>
+
+          <button
+            className="logout-btn"
+            onClick={() => setShowLogoutModal(true)}
+          >
+            Logout
+          </button>
+
         </div>
+
       </nav>
 
-      {/* LOGOUT CONFIRM MODAL */}
       {showLogoutModal && (
+
         <div className="modal-overlay">
-          <div className="modal">
-            <h3>Confirm Logout</h3>
-            <p>Are you sure you want to logout?</p>
+
+          <div className="logout-modal">
+
+            <div className="logout-icon">
+              🚪
+            </div>
+
+            <h2>Logout</h2>
+
+            <p>
+              Are you sure you want to logout?
+            </p>
 
             <div className="modal-actions">
+
               <button
-                className="btn cancel"
+                className="cancel-btn"
                 onClick={() => setShowLogoutModal(false)}
               >
                 Cancel
               </button>
 
               <button
-                className="btn confirm"
+                className="confirm-btn"
                 onClick={handleLogout}
               >
                 Logout
               </button>
+
             </div>
+
           </div>
+
         </div>
+
       )}
+
     </>
   );
 };
 
 export default Navbar;
-
 
