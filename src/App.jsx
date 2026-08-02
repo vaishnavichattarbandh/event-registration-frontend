@@ -19,7 +19,7 @@ import AdminQRCheckin from "./pages/adminqrcheckin";
 import AdminCommunications from "./pages/admincommunications";
 import AdminSettings from "./pages/adminsettings";
 // Layouts & Guards
-import UserLayout from "./layouts/UserLayout";
+import UserLayout from "./layouts/userlayout";
 import MainLayout from "./layouts/mainlayout";
 import ProtectedRoute from "./components/protectedroute";
 
