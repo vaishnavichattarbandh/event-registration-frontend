@@ -19,7 +19,7 @@ const Sidebar = ({ isOpen, closeSidebar }) => {
         <div className="sidebar-header">
           <div className="logo-circle">🎓</div>
           <div className="brand-title">
-            <h2>Aurora</h2>
+            <h2>Nexus </h2>
             <span>Event Hub</span>
           </div>
         </div>

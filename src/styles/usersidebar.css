@@ -1,0 +1,115 @@
+/* ==========================================
+   SIDEBAR MAIN CONTAINER (DESKTOP / LAPTOP)
+   ========================================== */
+
+.user-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background-color: #0f172a; /* Slate 900 */
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+/* Sidebar Header / Logo Area */
+.sidebar-logo {
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid #1e293b; /* Slate 800 */
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.sidebar-logo span {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #38bdf8; /* Sky Blue accent */
+  letter-spacing: 1.5px;
+  margin-top: 2px;
+}
+
+/* Sidebar Navigation Links Container */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  flex: 1;
+}
+
+/* Navigation Links */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.8rem 1rem;
+  color: #94a3b8; /* Slate 400 */
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  background-color: #1e293b; /* Slate 800 */
+  color: #f8fafc;
+  transform: translateX(3px);
+}
+
+.nav-item.active {
+  background-color: #2563eb; /* Primary Blue */
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* ==========================================
+   BACKDROP OVERLAY (MOBILE ONLY)
+   ========================================== */
+
+.sidebar-mobile-backdrop {
+  display: none; /* Hidden by default on Laptop/Desktop */
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE (<= 768px)
+   ========================================== */
+
+@media (max-width: 768px) {
+  /* Hide sidebar off-screen by default on mobile */
+  .user-sidebar {
+    transform: translateX(-100%);
+  }
+
+  /* Slide in sidebar when open state is active on mobile */
+  .user-sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Show semi-transparent dark backdrop overlay ONLY on mobile when open */
+  .sidebar-mobile-backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.6);
+    z-index: 90; /* Right behind the sidebar (100) */
+  }
+}

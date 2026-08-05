@@ -48,7 +48,7 @@ const Navbar = ({ toggleSidebar }) => {
           )}
 
           <div className="nav-title">
-            <h2>Aurora Event Hub</h2>
+            <h2>Nexus Event Hub</h2>
             <span>{today}</span>
           </div>
 
